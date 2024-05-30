@@ -16,6 +16,8 @@ leptos_meta = { version = "0.6" }
 leptos_actix = { version = "0.6", optional = true }
 leptos_router = { version = "0.6" }
 wasm-bindgen = "=0.2.92"
+markdown = { version = "1.0.0-alpha.17", optional = true }
+rusqlite = { version = "0.31.0", features = ["bundled", "functions", "blob", "serde_json", "array"], optional = true }
 
 [features]
 csr = ["leptos/csr", "leptos_meta/csr", "leptos_router/csr"]
@@ -24,6 +26,8 @@ ssr = [
   "dep:actix-files",
   "dep:actix-web",
   "dep:leptos_actix",
+  "dep:markdown",
+  "dep:rusqlite",
   "leptos/ssr",
   "leptos_meta/ssr",
   "leptos_router/ssr",

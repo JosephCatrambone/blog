@@ -1,4 +1,6 @@
 pub mod app;
+mod datamodel;
+mod post;
 
 #[cfg(feature = "hydrate")]
 #[wasm_bindgen::prelude::wasm_bindgen]
