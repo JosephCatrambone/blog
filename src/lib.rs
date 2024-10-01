@@ -12,7 +12,7 @@ pub struct Website {
 // Maybe consider https://crates.io/crates/rusqlite-from-row
 #[derive(Debug, Clone)]
 pub struct Post {
-	id: u64,
+	id: i64,
 	pub title: String,
 	pub permalink: String,
 	body_markdown: String,
@@ -59,8 +59,25 @@ impl Website {
 		vec![]
 	}
 	
-	pub fn get_page_by_id(&self, id: u64) -> Post {
-		todo!()
+	pub fn get_page_by_id(&self, id: i64) -> Option<Post> {
+		let mut stmt = self.db.prepare("SELECT id, title, permalink, body_markdown, body_html, tags, date_uploaded FROM posts WHERE ?1;").expect("Failed to execute SQL in get_page_by_id");
+		// TODO: Let us have drafts and multiple versions of blog posts.
+		let post_iter = stmt.query_map([id,], |row| {
+			Ok(Post {
+				id: row.get(0).unwrap(),
+				title: row.get(1).unwrap(),
+				permalink: row.get(2).unwrap(),
+				body_markdown: row.get(3).unwrap(),
+				body_html: row.get(4).unwrap(),
+				tags: row.get::<usize, String>(5).unwrap().split("\t").map(|t| String::from(t)).collect::<Vec<String>>(),
+				date_uploaded: row.get(6).unwrap(),
+			})
+		}).expect("Failed to get iterator over posts.");
+
+		for post in post_iter {
+			return Some(post.unwrap().clone());
+		}
+		return None;
 	}
 
 	pub fn search_pages(&self, query: &String) -> Vec<(f32, Post)> {
@@ -96,6 +113,7 @@ impl Website {
 				"INSERT INTO posts (title, permalink, body_markdown, body_html, tags, date_uploaded) VALUES (?1, ?2, ?3, ?4, ?5, ?6);",
 				(&post.title, &post.permalink, &post.body_markdown, &post.body_html, &post.tags.join("\t"), &post.date_uploaded),
 			).expect("Failed to insert POST.");
+			post.id = self.db.last_insert_rowid();
 		}
 		post
 	}
@@ -123,6 +141,9 @@ mod tests {
 		for save in [false, true] {
 			let post = website.create_page("Hi".to_string(), "test".to_string(), "**MARKDOWN!**".to_string(), vec![], save);
 			assert_eq!(&post.body_html, "<p><strong>MARKDOWN!</strong></p>\n");
+			let p2 = website.get_page_by_id(post.id);
+			assert!(p2.is_some());
+			assert_eq!(&post.id, &p2.unwrap().id);
 		}
 	}
 }
