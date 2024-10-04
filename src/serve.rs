@@ -1,7 +1,16 @@
-use website::*;
+use std::cell::OnceCell;
 
 use salvo::prelude::*;
 use salvo::prelude::TcpListener;
+
+use website::*;
+
+pub static SITE_DB: OnceCell<Website> = OnceCell::new();
+//pub static SITE_DB: Lazy<Website> = Lazy::new(|| Website::new(Some("website.db")));
+
+pub fn site_db() -> &'static Website {
+	SITE_DB.get().unwrap()
+}
 
 #[handler]
 async fn hello(res: &mut Response) {
@@ -10,6 +19,9 @@ async fn hello(res: &mut Response) {
 
 #[tokio::main]
 async fn main() {
+	let site = Website::new(Some("website.db"));
+	SITE_DB.set(site).unwrap();
+
 	let mut router = Router::new().get(hello);
 	let listener = TcpListener::new("0.0.0.0:443")
 		.acme()
