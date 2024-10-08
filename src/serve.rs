@@ -1,4 +1,5 @@
 use std::cell::OnceCell;
+use std::env;
 
 use salvo::prelude::*;
 use salvo::prelude::TcpListener;
@@ -10,6 +11,18 @@ pub static SITE_DB: OnceCell<Website> = OnceCell::new();
 
 pub fn site_db() -> &'static Website {
 	SITE_DB.get().unwrap()
+}
+
+pub struct ServerConfig {
+	pub db_file_path: String,
+	pub port: u16,
+}
+
+impl ServerConfig {
+	pub fn from_env(args: &[String]) -> Result<Self, &'static str> {
+		//let db_name = env::var("DB_FILE_PATH").is_ok();
+		todo!()
+	}
 }
 
 #[handler]
