@@ -19,7 +19,7 @@ async fn hello(res: &mut Response) {
 
 #[tokio::main]
 async fn main() {
-	let site = Website::new(Some("website.db"));
+	let site = Website::new_from_filepath("website.db");
 	SITE_DB.set(site).unwrap();
 
 	let mut router = Router::new().get(hello);
