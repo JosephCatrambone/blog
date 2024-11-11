@@ -4,11 +4,12 @@ use anyhow::Result as AResult;
 use pulldown_cmark;
 use rusqlite::{Connection, Result, Row};
 use std::path::Path;
+use std::sync::{Arc, Mutex};
 use std::time::{Instant, SystemTime, UNIX_EPOCH};
 
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub struct Website {
-	db: Connection,
+	db: Arc<Mutex<Connection>>,
 }
 
 // Maybe consider https://crates.io/crates/rusqlite-from-row
@@ -36,14 +37,8 @@ fn post_from_row(row: &Row) -> AResult<Post> {
 }
 
 impl Website {
-	pub fn new<T>(filepath: Option<T>) -> Self where T: AsRef<Path> {
-		// Get DB ref.
-		let db = if let Some(path) = filepath {
-			Connection::open::<T>(path.into())
-		} else {
-			Connection::open_in_memory()
-		}.unwrap();
 
+	fn new_from_db(db: Connection) -> Self {
 		// Check for tables and maybe create them.
 		db.execute(
 			"CREATE TABLE IF NOT EXISTS posts (
@@ -60,13 +55,22 @@ impl Website {
 		).expect("Failed to create posts table in database.");
 
 		Website {
-			db
+			db: Arc::new(Mutex::new(db))
 		}
+	}
+
+	pub fn new_in_memory() -> Self {
+		Self::new_from_db(Connection::open_in_memory().unwrap())
+	}
+
+	pub fn new_from_filepath<T>(filepath: T) -> Self where T: AsRef<Path> {
+		Self::new_from_db(Connection::open::<T>(filepath.into()).unwrap())
 	}
 
 	// Get:
 	pub fn get_recent(&self, count: u8) -> Vec<Post> {
-		let mut stmt = self.db.prepare("SELECT id, title, permalink, body_markdown, body_html, tags, date_uploaded FROM posts ORDER BY date_uploaded DESC LIMIT ?1;").expect("Failed to execute SQL in get_recent.");
+		let mut db_ref = self.db.lock().expect("RWLock poisoned.");
+		let mut stmt = db_ref.prepare("SELECT id, title, permalink, body_markdown, body_html, tags, date_uploaded FROM posts ORDER BY date_uploaded DESC LIMIT ?1;").expect("Failed to execute SQL in get_recent.");
 		let post_iter = stmt.query_map([count,], |row| {
 			Ok(Post {
 				id: row.get(0).unwrap(),
@@ -91,7 +95,8 @@ impl Website {
 	}
 	
 	pub fn get_page_by_id(&self, id: i64) -> Option<Post> {
-		let mut stmt = self.db.prepare("SELECT id, title, permalink, body_markdown, body_html, tags, date_uploaded FROM posts WHERE ?1;").expect("Failed to execute SQL in get_page_by_id");
+		let db_ref = self.db.lock().expect("RWLock poisoned.");
+		let mut stmt = db_ref.prepare("SELECT id, title, permalink, body_markdown, body_html, tags, date_uploaded FROM posts WHERE ?1;").expect("Failed to execute SQL in get_page_by_id");
 		// TODO: Let us have drafts and multiple versions of blog posts.
 		// We could perhaps use query_row for this if we didn't care about the 404 case.
 		let post_iter = stmt.query_map([id,], |row| {
@@ -142,17 +147,19 @@ impl Website {
 		//assert_eq!(&post.body_html, "<p>hello world</p>\n");
 
 		if save {
-			self.db.execute(
+			let mut db_ref = self.db.lock().expect("Failed to grab write lock from RwLock. RwLock poisoned!?");
+			db_ref.execute(
 				"INSERT INTO posts (title, permalink, body_markdown, body_html, tags, date_uploaded) VALUES (?1, ?2, ?3, ?4, ?5, ?6);",
 				(&post.title, &post.permalink, &post.body_markdown, &post.body_html, &post.tags, &post.date_uploaded),
 			).expect("Failed to insert POST.");
-			post.id = self.db.last_insert_rowid();
+			post.id = db_ref.last_insert_rowid();
 		}
 		post
 	}
 
 	pub fn update_page(&mut self, post: Post) {
-		self.db.execute(
+		let mut db_ref = self.db.lock().expect("Failed to get DB write lock. Lock poisoned.");
+		db_ref.execute(
 			"UPDATE posts SET title=?2, body_markdown=?3, body_html=?4, tags=?5 WHERE id=?1;", 
 			(&post.id, &post.title, &post.body_markdown, &post.body_html, &post.tags)
 		).expect("Failed to update post.");
@@ -165,12 +172,12 @@ mod tests {
 
 	#[test]
 	fn sanity() {
-		let website = Website::new(None);
+		let website = Website::new_in_memory();
 	}
 
 	#[test]
 	fn test_create_post() {
-		let mut website = Website::new(None);
+		let mut website = Website::new_in_memory();
 		for save in [false, true] {
 			let post = website.create_page("Hi".to_string(), "test".to_string(), "**MARKDOWN!**".to_string(), "".to_string(), save);
 			assert_eq!(&post.body_html, "<p><strong>MARKDOWN!</strong></p>\n");
@@ -179,7 +186,7 @@ mod tests {
 
 	#[test]
 	fn test_load_post() {
-		let mut website = Website::new(None);
+		let mut website = Website::new_in_memory();
 		let post1 = website.create_page("Hi".to_string(), "asdf".to_string(), "asdf".to_string(), "".to_string(), true);
 		let post2 = website.get_page_by_id(post1.id);
 		assert!(post2.is_some());

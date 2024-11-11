@@ -1,5 +1,6 @@
 use std::sync::OnceLock;
 use std::sync::{Arc, Mutex};
+use std::env;
 
 use salvo::prelude::*;
 use salvo::prelude::TcpListener;
@@ -15,9 +16,21 @@ pub fn site_db() -> &'static Website {
 }
 */
 
+pub struct ServerConfig {
+	pub db_file_path: String,
+	pub port: u16,
+}
+
+impl ServerConfig {
+	pub fn from_env(args: &[String]) -> Result<Self, &'static str> {
+		//let db_name = env::var("DB_FILE_PATH").is_ok();
+		todo!()
+	}
+}
+
 #[handler]
 async fn hello(res: &mut Response) {
-    let mut db_lock = SITE_DB.get().expect("Failed to get OnceLock -> ARC for DB.").lock().expect("Lock DB failed.");
+	let mut db_lock = SITE_DB.get().expect("Failed to get OnceLock -> ARC for DB.").lock().expect("Lock DB failed.");
 	res.render(Text::Plain("Hello World"));
 }
 
