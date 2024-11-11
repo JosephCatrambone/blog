@@ -1,26 +1,30 @@
-use std::cell::OnceCell;
+use std::sync::OnceLock;
+use std::sync::{Arc, Mutex};
 
 use salvo::prelude::*;
 use salvo::prelude::TcpListener;
 
 use website::*;
 
-pub static SITE_DB: OnceCell<Website> = OnceCell::new();
+pub static SITE_DB: OnceLock<Arc<Mutex<Website>>> = OnceLock::new(); // Arc::new(Mutex::new(Website::new(Some("website.db"))));
 //pub static SITE_DB: Lazy<Website> = Lazy::new(|| Website::new(Some("website.db")));
 
+/*
 pub fn site_db() -> &'static Website {
 	SITE_DB.get().unwrap()
 }
+*/
 
 #[handler]
 async fn hello(res: &mut Response) {
+    let mut db_lock = SITE_DB.get().expect("Failed to get OnceLock -> ARC for DB.").lock().expect("Lock DB failed.");
 	res.render(Text::Plain("Hello World"));
 }
 
 #[tokio::main]
 async fn main() {
-	let site = Website::new(Some("website.db"));
-	SITE_DB.set(site).unwrap();
+	let site = Arc::new(Mutex::new(Website::new(Some("website.db"))));
+	SITE_DB.set(site).expect("Unable to set static reference to site DB.");
 
 	let mut router = Router::new().get(hello);
 	let listener = TcpListener::new("0.0.0.0:443")
