@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ title }}</title>
+</head>
+<body>
+	{{#with search_results}}
+		{{#each search_results}}
+
+		{{/each}}
+	{{/with}}
+
+	{{#with blog}}
+		Blog template:
+		{{{ body }}}
+	{{/with}}
+</body>
+</html>

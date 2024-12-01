@@ -24,6 +24,15 @@ pub struct Post {
 	pub date_uploaded: u64, // Seconds since Unix epoch.
 }
 
+#[derive(Clone, Debug)]
+pub struct SearchResult {
+	score: f64,
+	pub post_id: i64,
+	pub title: String,
+	pub body_html_excerpt: String,
+	pub tags: String,
+}
+
 fn post_from_row(row: &Row) -> AResult<Post> {
 	Ok(Post {
 		id: row.get(0)?,
@@ -37,7 +46,6 @@ fn post_from_row(row: &Row) -> AResult<Post> {
 }
 
 impl Website {
-
 	fn new_from_db(db: Connection) -> Self {
 		// Check for tables and maybe create them.
 		db.execute(
@@ -50,9 +58,16 @@ impl Website {
 				tags TEXT NOT NULL,
 				-- data BLOB
 				date_uploaded INTEGER -- UTC epoch
-			)",
+			);",
 			(), // empty list of parameters.
 		).expect("Failed to create posts table in database.");
+
+		// Should we use trigram search for better code matching?
+		// CREATE VIRTUAL TABLE search_index USING fts5(..., tokenize="trigram"); ?
+		db.execute(
+			"CREATE VIRTUAL TABLE search_index USING fts5(post_id, title, body_html, tags);",
+			()
+		);
 
 		Website {
 			db: Arc::new(Mutex::new(db))
@@ -96,7 +111,7 @@ impl Website {
 	
 	pub fn get_page_by_id(&self, id: i64) -> Option<Post> {
 		let db_ref = self.db.lock().expect("RWLock poisoned.");
-		let mut stmt = db_ref.prepare("SELECT id, title, permalink, body_markdown, body_html, tags, date_uploaded FROM posts WHERE ?1;").expect("Failed to execute SQL in get_page_by_id");
+		let mut stmt = db_ref.prepare("SELECT id, title, permalink, body_markdown, body_html, tags, date_uploaded FROM posts WHERE id=?1;").expect("Failed to execute SQL in get_page_by_id");
 		// TODO: Let us have drafts and multiple versions of blog posts.
 		// We could perhaps use query_row for this if we didn't care about the 404 case.
 		let post_iter = stmt.query_map([id,], |row| {
@@ -118,8 +133,22 @@ impl Website {
 		return None;
 	}
 
-	pub fn search_pages(&self, query: &String) -> Vec<(f32, Post)> {
-		todo!()
+	pub fn search_pages_basic(&self, query: &String, limit: u8) -> Vec<SearchResult> {
+		let db_ref = self.db.lock().expect("RWLock poisoned.");
+		let mut stmt = db_ref.prepare(
+			"SELECT rank, post_id, posts.title, posts.body_html, posts.tags FROM search_index JOIN posts ON posts.id = post_id WHERE search_index MATCH ?1 ORDER BY RANK LIMIT ?2"
+		).expect("Failed to execute SQL in get_page_by_id");
+		let post_iter = stmt.query_map([query, &limit.to_string()], |row| {
+			Ok(SearchResult {
+				score: row.get(0).unwrap(),
+				post_id: row.get(1).unwrap(),
+				title: row.get(2).unwrap(),
+				body_html_excerpt: row.get(3).unwrap(),
+				tags: row.get(4).unwrap(),
+			})
+		}).expect("Failed to get iterator over posts.");
+
+		post_iter.flat_map(|r| if let Ok(res) = r { Some(res) } else { None }).collect::<Vec<SearchResult>>()
 	}
 
 	// Update/Create:
@@ -157,6 +186,12 @@ impl Website {
 		post
 	}
 
+	pub fn reindex_search(&mut self) {
+		let mut db_ref = self.db.lock().expect("Failed to get DB write lock. Lock poisoned.");
+		db_ref.execute("DELETE FROM search_index;", ()).expect("Failed to clear previous search index.");
+		db_ref.execute("INSERT INTO search_index (post_id, title, body_html, tags) SELECT posts.id, posts.title, posts.body_html, posts.tags FROM posts;", ()).expect("Failed to recompute search index.");
+	}
+
 	pub fn update_page(&mut self, post: Post) {
 		let mut db_ref = self.db.lock().expect("Failed to get DB write lock. Lock poisoned.");
 		db_ref.execute(
@@ -191,5 +226,17 @@ mod tests {
 		let post2 = website.get_page_by_id(post1.id);
 		assert!(post2.is_some());
 		assert_eq!(&post1.id, &post2.unwrap().id);
+	}
+
+	#[test]
+	fn test_basic_search() {
+		let mut website = Website::new_in_memory();
+		_ = website.create_page("Hi".to_string(), "test".to_string(), "**MARKDOWN!**".to_string(), "".to_string(), true);
+		_ = website.create_page("What is up?".to_string(), "whazzaaaap".to_string(), "whazzaaaap".to_string(), "".to_string(), true);
+		let test_post = website.create_page("test".to_string(), "test".to_string(), "test".to_string(), "".to_string(), true);
+		website.reindex_search();
+		let search_results = website.search_pages_basic(&"test".to_string(), 2);
+		assert_eq!(search_results[0].post_id, test_post.id);
+		println!("Best match for 'test': {}", &search_results[0].title);
 	}
 }
