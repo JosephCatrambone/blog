@@ -4,17 +4,16 @@ use std::env;
 use std::sync::OnceLock;
 use std::sync::{Arc, Mutex};
 
-use handlebars::Handlebars;
 use salvo::prelude::*;
 use salvo::prelude::TcpListener;
 
 use website::*;
 
+pub static DEFAULT_STYLE: &'static str = include_str!("../style/main.css");
 pub static INDEX_TEMPLATE: &'static str = include_str!("../templates/index.html");
 pub static BLOG_TEMPLATE: &'static str = include_str!("../templates/blog.html");
 pub static SITE_DB: OnceLock<Arc<Mutex<Website>>> = OnceLock::new(); // Arc::new(Mutex::new(Website::new(Some("website.db"))));
 //pub static SITE_DB: Lazy<Website> = Lazy::new(|| Website::new(Some("website.db")));
-pub static TEMPLATE_ENGINE: OnceLock<Arc<Mutex<Handlebars>>> = OnceLock::new();
 
 /*
 pub fn site_db() -> &'static Website {
@@ -46,6 +45,11 @@ async fn hello(res: &mut Response) {
 }
 
 #[handler]
+async fn get_style(res: &mut Response) {
+	res.render(Text::Css(DEFAULT_STYLE));
+}
+
+#[handler]
 async fn index(req: &mut Request, res: &mut Response) {
 	if let Some(id) = req.param::<i64>("p") {  // Legacy page_id.  Forward to blog=.
 		res.render(Redirect::permanent(format!("/blog/{}", &id)));
@@ -66,25 +70,22 @@ async fn find_blog_page(req: &mut Request, res: &mut Response) {
 #[handler]
 async fn get_blog_page(req: &mut Request, res: &mut Response) {
 	let id: Option<i64> = req.param::<i64>("id");
-	let mut handlebars = TEMPLATE_ENGINE.get().expect("Failed to acquire template engine.").lock().expect("Failed to lock template engine.");
-	let mut data = HashMap::new();
+	let mut page_html = BLOG_TEMPLATE.to_string();  // Effectively clones the page.
 	if let Some(id) = id {
 		let mut db_lock = SITE_DB.get().expect("Failed to get OnceLock -> ARC for DB.").lock().expect("Lock DB failed.");
 		let page = db_lock.get_page_by_id(id);
 		if let Some(page_data) = page {
-			data.insert("title", page_data.title);
-			data.insert("body", page_data.body_html);
+			page_html = page_html.replace("{{main_content}}", &page_data.body_html);
 		} else {
-			data.insert("title", "Page Not Found".into());
-			data.insert("body", "Couldn't find a blog post with the specified ID.".into());
+			//data.insert("title", "Page Not Found".into());
+			page_html = page_html.replace("{{main_content}}", "Couldn't find a blog post with the specified ID.");
 			res.status_code = Some(StatusCode::from_u16(404).unwrap());
 		}
 	} else {
-		data.insert("title", "Bad Request".into());
-		data.insert("body", "No Blog ID specified.".into());
+		page_html = page_html.replace("{{main_content}}", "No Blog ID specified.");
 		res.status_code = Some(StatusCode::from_u16(400).unwrap());
 	}
-	res.render(Text::Html(handlebars.render("blog", &data).unwrap()));
+	res.render(Text::Html(page_html));
 }
 
 #[tokio::main]
@@ -92,22 +93,11 @@ async fn main() {
 	let site = Arc::new(Mutex::new(Website::new_from_filepath("website.db")));
 	SITE_DB.set(site).expect("Unable to set static reference to site DB.");
 
-	let mut handlebars = Handlebars::new();
-	//handlebars.register_template_string("blog", BLOG_TEMPLATE).unwrap();
-	handlebars.register_template_file("blog", "./templates/blog.html").unwrap();
-	handlebars.register_template_string("index", INDEX_TEMPLATE).unwrap();
-	TEMPLATE_ENGINE.set(Arc::new(Mutex::new(handlebars))).expect("Failed to set static reference to template engine.");
-
 	let mut router = Router::with_path("/")
 		.get(index)
-		.push(
-			Router::with_path("blog/<id>")
-				.get(get_blog_page)
-		)
-		.push(
-			Router::with_path("search")
-				.get(find_blog_page)
-		);
+		.push(Router::with_path("style/main.css").get(get_style))
+		.push(Router::with_path("blog/<id>").get(get_blog_page))
+		.push(Router::with_path("search").get(find_blog_page));
 	/*
 		//.post(create_writer)
 		.push(
@@ -122,12 +112,12 @@ async fn main() {
 				.delete(delete_writer)
 				.push(Router::with_path("articles").get(list_writer_articles)),
 		);
-*/
+	*/
 	//Service::new(router).catcher(Catcher::default().hoop(handle404));
 	let listener = TcpListener::new("0.0.0.0:443")
 		.acme()
 		.add_domain("josephcatrambone.com")
-		.http01_challege(&mut router)
+		.http01_challenge(&mut router)
 		.quinn("0.0.0.0:443");
 	let acceptor = listener.join(TcpListener::new("0.0.0.0:80")).bind().await;
 	Server::new(acceptor).serve(router).await;
