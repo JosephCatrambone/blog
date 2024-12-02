@@ -35,6 +35,7 @@ body {
 	background: #404041;
 }
 .default-page-grid > .main-content {
+	overflow-wrap: break-word;
 	grid-area: main-content;
 	background: #404041;
 }
@@ -60,6 +61,10 @@ body {
 .default-page-grid > .highlight-gold {
 	background: #eec584;
 	font-weight: bold;
+}
+
+.default-page-grid > .code {
+	overflow-wrap: normal;  /* Clear previous value. */
 }
 
 /* tablet breakpoint */

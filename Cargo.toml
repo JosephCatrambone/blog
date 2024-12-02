@@ -31,11 +31,12 @@ serde = { version = "~1.0", features = ["derive"] }
 #dioxus = { version = "0.5.6", features = ["fullstack", "router"], optional = true }
 #axum = { version = "0.7.9", optional = true }
 # servesalvo
+handlebars = { version = "~6.2", optional = true }
 salvo = { version = "~0.74", features = ["cookie", "server", "http1", "http2", "quinn", "test", "acme", "rustls", "oapi"], optional = true }
 
 [features]
-default = ["salvo"]
-servesalvo = ["salvo"]
+default = ["salvo", "handlebars"]
+servesalvo = ["salvo", "handlebars"]
 #servedioxus = ["dioxus", "axum",]
 
 # Defines a size-optimized profile for the WASM bundle in release mode

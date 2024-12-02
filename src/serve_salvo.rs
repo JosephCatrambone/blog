@@ -4,8 +4,11 @@ use std::env;
 use std::sync::OnceLock;
 use std::sync::{Arc, Mutex};
 
+use handlebars::Handlebars;
 use salvo::prelude::*;
 use salvo::prelude::TcpListener;
+use salvo::server::ServerHandle;
+use tokio::signal;
 
 use website::*;
 
@@ -14,6 +17,7 @@ pub static INDEX_TEMPLATE: &'static str = include_str!("../templates/index.html"
 pub static THREE_PANE_LAYOUT_TEMPLATE: &'static str = include_str!("../templates/three_pane_layout.html");
 pub static SITE_DB: OnceLock<Arc<Mutex<Website>>> = OnceLock::new(); // Arc::new(Mutex::new(Website::new(Some("website.db"))));
 //pub static SITE_DB: Lazy<Website> = Lazy::new(|| Website::new(Some("website.db")));
+pub static TEMPLATE_ENGINE: OnceLock<Arc<Mutex<Handlebars>>> = OnceLock::new();
 
 /*
 pub fn site_db() -> &'static Website {
@@ -70,28 +74,35 @@ async fn find_blog_page(req: &mut Request, res: &mut Response) {
 #[handler]
 async fn get_blog_page(req: &mut Request, res: &mut Response) {
 	let id: Option<i64> = req.param::<i64>("id");
-	let mut page_html = THREE_PANE_LAYOUT_TEMPLATE.to_string();  // Effectively clones the page.
+	let mut handlebars = TEMPLATE_ENGINE.get().expect("Failed to acquire template engine.").lock().expect("Failed to lock template engine.");
+	let mut data = HashMap::new();
 	if let Some(id) = id {
 		let mut db_lock = SITE_DB.get().expect("Failed to get OnceLock -> ARC for DB.").lock().expect("Lock DB failed.");
 		let page = db_lock.get_page_by_id(id);
 		if let Some(page_data) = page {
-			page_html = page_html.replace("{{main_content}}", &page_data.body_html);
+			data.insert("left_content", page_data.title);
+			data.insert("main_content", page_data.body_html);
 		} else {
 			//data.insert("title", "Page Not Found".into());
-			page_html = page_html.replace("{{main_content}}", "Couldn't find a blog post with the specified ID.");
+			data.insert("main_content", "Couldn't find a blog with the specified ID.".into());
 			res.status_code = Some(StatusCode::from_u16(404).unwrap());
 		}
 	} else {
-		page_html = page_html.replace("{{main_content}}", "No Blog ID specified.");
+		data.insert("main_content", "No Blog ID specified.".into());
 		res.status_code = Some(StatusCode::from_u16(400).unwrap());
 	}
-	res.render(Text::Html(page_html));
+	res.render(Text::Html(handlebars.render("three_pane_layout", &data).unwrap()));
 }
 
 #[tokio::main]
 async fn main() {
 	let site = Arc::new(Mutex::new(Website::new_from_filepath("website.db")));
 	SITE_DB.set(site).expect("Unable to set static reference to site DB.");
+	let mut handlebars = Handlebars::new();
+	//handlebars.register_template_string("blog", BLOG_TEMPLATE).unwrap();
+	handlebars.register_template_file("three_pane_layout", "./templates/three_pane_layout.html").unwrap();
+	handlebars.register_template_string("index", INDEX_TEMPLATE).unwrap();
+	TEMPLATE_ENGINE.set(Arc::new(Mutex::new(handlebars))).expect("Failed to set static reference to template engine.");
 
 	let mut router = Router::with_path("/")
 		.get(index)
@@ -120,5 +131,45 @@ async fn main() {
 		.http01_challenge(&mut router)
 		.quinn("0.0.0.0:443");
 	let acceptor = listener.join(TcpListener::new("0.0.0.0:80")).bind().await;
-	Server::new(acceptor).serve(router).await;
+
+	let server = Server::new(acceptor);
+	let handle = server.handle();
+
+	// Listen Shutdown Signal
+	tokio::spawn(listen_shutdown_signal(handle));
+
+	server.serve(router).await;
+}
+
+async fn listen_shutdown_signal(handle: ServerHandle) {
+	// Wait Shutdown Signal
+	let ctrl_c = async {
+		signal::ctrl_c()
+			.await
+			.expect("failed to install Ctrl+C handler");
+	};
+
+	#[cfg(unix)]
+	let terminate = async {
+		signal::unix::signal(signal::unix::SignalKind::terminate())
+			.expect("failed to install signal handler")
+			.recv()
+			.await;
+	};
+
+	#[cfg(windows)]
+	let terminate = async {
+		signal::windows::ctrl_c()
+			.expect("failed to install signal handler")
+			.recv()
+			.await;
+	};
+
+	tokio::select! {
+        _ = ctrl_c => println!("ctrl_c signal received"),
+        _ = terminate => println!("terminate signal received"),
+    };
+
+	// Graceful Shutdown Server
+	handle.stop_graceful(None);
 }
