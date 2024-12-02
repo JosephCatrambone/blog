@@ -11,7 +11,7 @@ use website::*;
 
 pub static DEFAULT_STYLE: &'static str = include_str!("../style/main.css");
 pub static INDEX_TEMPLATE: &'static str = include_str!("../templates/index.html");
-pub static BLOG_TEMPLATE: &'static str = include_str!("../templates/blog.html");
+pub static THREE_PANE_LAYOUT_TEMPLATE: &'static str = include_str!("../templates/three_pane_layout.html");
 pub static SITE_DB: OnceLock<Arc<Mutex<Website>>> = OnceLock::new(); // Arc::new(Mutex::new(Website::new(Some("website.db"))));
 //pub static SITE_DB: Lazy<Website> = Lazy::new(|| Website::new(Some("website.db")));
 
@@ -70,7 +70,7 @@ async fn find_blog_page(req: &mut Request, res: &mut Response) {
 #[handler]
 async fn get_blog_page(req: &mut Request, res: &mut Response) {
 	let id: Option<i64> = req.param::<i64>("id");
-	let mut page_html = BLOG_TEMPLATE.to_string();  // Effectively clones the page.
+	let mut page_html = THREE_PANE_LAYOUT_TEMPLATE.to_string();  // Effectively clones the page.
 	if let Some(id) = id {
 		let mut db_lock = SITE_DB.get().expect("Failed to get OnceLock -> ARC for DB.").lock().expect("Lock DB failed.");
 		let page = db_lock.get_page_by_id(id);
