@@ -1,0 +1,22 @@
+---
+title: 'Programming Problem Compendium'
+description: ""
+published: 2016-10-18
+redirect_from: 
+            - https://www.josephcatrambone.com/?p=888
+categories: "Programming"
+hero: ../../../defaultHero.jpg
+---
+In a previous blog post \[link], I mentioned looking for a more perfect programming language.  I realized that I don't generally approach languages with the same project in mind, partially because I don't have a standard ensemble of things to do.  In the hopes of better establishing a baseline, I'll try to enumerate a standard set of problems that I will tackle when picking up a new language in the hopes of seeing how it "feels".  These problems are more in tune with the kinds of things that I handle and don't necessarily generalize to the broader world, but hopefully by describing the details that go into a problem they'll provide insight into what one should be looking for when evaluating a new language.  If I'm lucky, this will also provide an opportunity to discuss and deconstruct what languages solve a problem particularly well.  These are more complete applications than the ones seen by Rosetta Code \[link] and Project Euler \[link], and take into account things like the availability of image and linear algebra libraries.
+
+## Problem 0: Format
+
+Problem description: This is a high level description of what the problem will be and why we want to solve it.  Hiccups and design considerations will be posted here.What this shows us: These are the features of the language that this problem should highlight.
+
+## Problem 1: Image Cat
+
+Problem description: Sometimes we're SSH'ed into a remote machine and don't want to open up an image to see if it matches our expectation.  "Is test.jpg a logo?  Is training_data_000.png a pokemon picture?  Is it blank?"  Sure, we can do a quick psftp to the remote machine, but that gets tedious.  We can also use imgcat from the creator of iTerm2 \[link], but that's not available everywhere.  User should be able to specify an image as an argument, or the program should accept an image from an input stream like stdin if they're using Curl.What this shows us: Fundamentally, this problem shows us how easy it is to work with images and color data.  It also lets us do CLI argument handling and shows how quickly the application can spin-up and spin-down.
+
+## Problem 2: Computational Graph
+
+Problem description: Calculus on computational graphs is the cornerstone of most of the newest generation of deep learning frameworks.  If you've ever used Theano, TensorFlow, Torch, or Keras (along with a handfull more), you've used a computational graph toolkit.What this shows us: Being able to easily pass around anonymous functions and evaluate named arguments are a nice test of language usability.  Additionally, this should allow you to see first hand how good the serialization/deserialization is for your language of choice.  Lastly, this should provide some experience with a language's linear algebra libraries.  When I implemented this in Rust the first time, I had problems passing around anonymous functions with Box&lt;Fn(a,b)->c> everywhere.  Python was pretty easy, though it took some reasoning to be sure I was storing nodes correctly, and being able to pass kwargs to functions made my life much easier.Problem 3: Top-Down/Raycasting GameProblem description: Build a top-down or first person game where the user must navigate a level.  Include physics, level loading, and possibly an editor.What this shows us: This shows our language's ability to do real-time input and rendering. Depending on whether or not you decide to do raycasting, this may also test your language's numerical capabilities.  It can emphasize the ease of use with Heap or Stack variables, especially Vectors.Problem 4: Shared Library PluginProblem description: Combine the computational graph program above with another language like Python or Rust.  Build a graph in your new language.What this shows us: This shows us what convenience methods we have for our FFI in both the host and target language.  It also demonstrates error handling and portability.Problem 5: Image Sharing SiteProblem description: Develop a site which allows users to upload pictures after signing in.What this shows us: This demonstrates how easy it is to get a web application up and running with our language, as well as its interoperability with databases.  It handles also file-uploads and template rendering.

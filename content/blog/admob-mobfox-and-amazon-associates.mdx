@@ -1,0 +1,10 @@
+---
+title: 'AdMob, MobFox, and Amazon Associates'
+description: ""
+published: 2012-08-19
+redirect_from: 
+            - https://www.josephcatrambone.com/?p=240
+categories: "Rant"
+hero: ../../../defaultHero.jpg
+---
+I left my job in July to pursue my PhD in computer science.  Though it was fun to be the highballer engineer pulling six figures out of college, there wasn't a day that went by where I didn't feel like a piece of shit for the (lack of) work I did.  I had the chance to put away more than enough money for the six to twelve month period before I became a teaching assistant or research assistant.  At least, I though I'd put away more than enough.  Burning through three months of savings during the cross-country move was enough to put the anxiety back into my daily life.  I made the push to get Google Ads on this site, but, as I'm sure you can tell from the absence thereof, my application was declined.  In light of the relative success and playability of MethRacer, I decided to port it to Android.  Rather than make a paid version for which I would be responsible, I decided instead to give it away for free and attach ad support.  AdMob has earned a name for itself as a ubiquitous and reasonably trustworthy ad medium.  Unfortunately, Unity and AdMob mix about as well as oil and water.  The reason behind this?  Well, to use AdMob, one must make use of their closed-source API for serving ads.  This is not a fun endeavor, as it usually involves subclassing the UnityPlayer for Android.  This was particularly problematic for me, as I only wanted to show ads on the GameOver, as part of an added incentive to stay alive.  After a few tries and more than enough failures, I gave in and started fiddling with MobFox.  My success was much more immediate.  Their API is utterly noninvasive and functions the way one would expect an API to work.  You formulate a GET request and fire it off to their serves.  They return HTML for you to display.  That's it.  Done.Now I need to figure out how to display HTML in Unity.
