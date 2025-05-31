@@ -1,12 +1,11 @@
----
-title: 'Java A* Implementation'
-description: ""
-published: 2014-04-24
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=454
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Java A* Implementation"
+date = "2014-04-24"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 There are a thousand implementations of A\* in Java. This one is mine.EDIT: If you're drawing your maps left to right, top to bottom, you're best off storing your maps as \[y]\[x] to avoid cache misses and to improve data locality. The code below assumes \[x]\[y] because I wrote it for someone else.`import java.awt.Point;
 import java.util.ArrayList;
 

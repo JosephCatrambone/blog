@@ -1,12 +1,11 @@
----
-title: 'Summer Awful Jam 2018: Sequels (Week 2)'
-description: ""
-published: 2018-07-10
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1110
-categories: "Game, Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Summer Awful Jam 2018"
+date = "2018-07-10"
+
+[taxonomies]
+tags=["Game,","Programming"]
++++
+
 Last week's progress is listed here [https://www.josephcatrambone.com/?p=1109](/?p=1109).I spent a while running through the game in its current state and think that it's fitting to add at least a few of the following features.Priority One:
 
 - Main menu with start/settings/quit.

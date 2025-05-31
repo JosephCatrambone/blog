@@ -1,12 +1,11 @@
----
-title: 'Building a GDNative Library on Windows'
-description: ""
-published: 2017-12-20
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1056
-categories: "Game, Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Building a GDNative Library on Windows"
+date = "2017-12-20"
+
+[taxonomies]
+tags=["Game,","Programming"]
++++
+
 Godot is a really honkin' neat engine. If you haven't tried it, I strongly recommend playing around with it. Take a look at <https://godotengine.org>.I found myself in a position where I needed to build a native library. Here's my experience doing that on Windows. I can't attest to the accuracy or repeatability of these steps, but I'm leaving them here so I can revisit them when I need to. Just remember: GDNative is a way to call into shared libraries from Godot. NativeScript is the other way -- native code that can call into Godot.
 
 ### Overview:

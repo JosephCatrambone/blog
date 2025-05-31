@@ -1,12 +1,11 @@
----
-title: 'Let''s Build a Sharing App: Part 1 of n'
-description: ""
-published: 2014-09-05
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=584
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Let''s Build a Sharing App"
+date = "2014-09-05"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 Welcome back again for hour two. Last time we made a simple read/execute/print loop. (REPL) This time we're going to add two commands, one to listen on a socket, another to send data to a listening socket. Last time we rounded off with printing. Let's review the code as we last saw it.
 
 ```

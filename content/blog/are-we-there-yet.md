@@ -1,12 +1,11 @@
----
-title: 'Are We There Yet?'
-description: ""
-published: 2014-04-08
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=447
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Are We There Yet?"
+date = "2014-04-08"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 Last night I was at a networking/social/office party. My {locate engineer; move to engineer; socialize with engineer} loop was preempted by a manager from a small globally-distributed network of contractors. Somewhere in the midst of conversation, I let it slip that my PhD focus was AI/ML. He asked me a question from my "Questions I've been asked for which I have not a satisfactory answer but should probably investigate eventually," list, and my inarticulate response prompted me to sit down and hammer out this post. The question was,
 
 > When are we going to have real AI?

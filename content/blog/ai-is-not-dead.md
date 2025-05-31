@@ -1,12 +1,11 @@
----
-title: 'AI is Not Dead'
-description: ""
-published: 2014-02-20
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=425
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "AI is Not Dead"
+date = "2014-02-20"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 I'm a regular listener to The Skeptic's Guide to the Universe. It's among my favorite diversions on my way to and from work. In a recent episode, the topic of AI was touched upon. The general sentiment was that, "AI, as it is currently being approached, won't work." There are a few possible interpretations of this sentiment, depending on how you interpret 'AI' and how you interpret 'work'. I'd filed it away in the back of my mind, telling myself that I'd send a mail of some sort (and knowing I'd never really do this), but again I've seen the phrase muttered, "AI won't work." Maybe it's the numerous acquisitions by everyone's favorite search giant that stirred the skepticism. Independent of the root cause, I'd like to try and pick apart the assorted dismissals and jabs at the state of AI.
 
 <!--

@@ -1,12 +1,11 @@
----
-title: 'Django Tag Searching'
-description: ""
-published: 2012-05-31
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=149
-categories: "Status"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Django Tag Searching"
+date = "2012-05-31"
+
+[taxonomies]
+tags=["Status"]
++++
+
 I had some problems this past week with a pet project.  In Django, I'm writing an image tagging/search social site.  There are pictures, posts, tags and votes.  Users can vote up or down tags.  The problem description is as follows:Select from the set of all pictures the images which do not have a NSFW tag with a sum score of greater than zero.  That is, if an image has a NSFW tag, and the sum of votes on that tag exceeds 0, (+1 is up, -1 is down), then don't display that image.  It was a surprisingly difficult problem which I only solved through the tremendous help of the SomethingAwful forum goons.As Python, this problem is simple:
 
 ```

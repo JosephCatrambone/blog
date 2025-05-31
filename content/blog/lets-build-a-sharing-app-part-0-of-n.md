@@ -1,12 +1,11 @@
----
-title: 'Let''s Build a Sharing App: Part 0 of n'
-description: ""
-published: 2014-09-04
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=573
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Let''s Build a Sharing App"
+date = "2014-09-04"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 Welcome to Let's Build. In this series, I'm going to walk through the creation of an application from concept to finished product. We'll be building a file sharing application in D. Why D? D is a time-tested, compiled, C-like language, and I have no idea how to use it. Learning for everyone! In the course of this project you'll likely see a lot of Python-isms written in D by someone with formal training in C and Java. It should make for some deliciously haphazard semantic salad. This series will target people with a basic familiarity of ADA-Class languages who know something of flow control and variables. We brake for nobody. It should illuminate the thought process of a professional (but not very good) software developer, and the mechanisms/brute-force by which a goal is achieved.
 
 ### What are we building?

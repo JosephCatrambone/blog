@@ -1,12 +1,11 @@
----
-title: 'Leaving Home'
-description: ""
-published: 2014-05-08
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=469
-categories: "Math, Status"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Leaving Home"
+date = "2014-05-08"
+
+[taxonomies]
+tags=["Math,","Status"]
++++
+
 Gliese 581 g is an Earth-like planet orbiting around Gliese 581 in the constellation Libra. It's around 20.3 lightyears away -- 1.92048727x10^17 meters, or 1.19333546x10^14 miles. Let's assume that a ship accelerates at around 2.9g, the maximum sustainable by humans for any prolonged period. As a note: we're only going to calculate the time to get half-way there. We can't keep accelerating at 2.9g for the whole trip, since we need to land on the other planet with a velocity of 0. If we keep accelerating, we'll plow into the planet with tremendous force and kill everyone on board. Instead, let's assume that we turn around half way and start accelerating in the opposite direction.What information do we have?
 
 - Distance: 20.3 lightyears = 1.9x10^17meters

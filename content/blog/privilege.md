@@ -1,12 +1,11 @@
----
-title: 'Privilege'
-description: ""
-published: 2014-11-25
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=643
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Privilege"
+date = "2014-11-25"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 Plenty of people have been up in arms around the recent verdict in Ferguson. I'm not going to be talking about that because I haven't taken the time to sit through days of testimony and evidence examinations. It does, however, provide the context for this next (paraphrased) comment:
 
 > Why are 99% of the people who say stop talking about race white, and why are 99% of the people who stop talking about privilege male?

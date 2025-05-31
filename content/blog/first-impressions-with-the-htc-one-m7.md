@@ -1,12 +1,11 @@
----
-title: 'First Impressions with the HTC One M7'
-description: ""
-published: 2014-10-14
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=615
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "First Impressions with the HTC One M7"
+date = "2014-10-14"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 One step closer to the HTC U Wot M8.A few months ago I clumsily dropped my Samsung Galaxy Nexus with a USB cable attached. The device was fine up until I ran over it with my rolling chair. It still works more or less normally, but the USB connection is tenuous and requires a very delicate touch. This is frustrating in development and makes using it as a GPS impossible. (The cable won't stay in on its own.) For environmental and guilt reasons, I generally avoid buying new phones. I picked up an HTC One M7 off Amazon for around $200.This is not the best choice I've ever made.I spent a long while researching the hardware and comparing the battery life (concern #1) and other, less important hardware details. When finally pressed to decide between the HTC M7, Samsung Galaxy S4, and the Xperia Z2, I went with the cheaper of three evils. The device's hardware is outstanding and the build quality is top notch. I have some minor discontentment with the inset of the top and side buttons, but these trifles in the larger scope. What upsets me most about this device (though it could be great) is the software component.Caveat: I have had very little time to really experiment with the device. These **are** first impressions, but they will color the lasting impressions I will have of the device. I will do my best to avoid confirmation bias, but I am not convinced that I can fully overlook my initial feelings on the matter.Some things that bother me:
 
 - Bloatware: Verizon has installed six applications, including the NFL app, which cannot be uninstalled.

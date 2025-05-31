@@ -1,12 +1,11 @@
----
-title: 'Tracking Marker Prototype'
-description: ""
-published: 2019-06-23
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1167
-categories: "Blender, Blender3D, computer vision, Programming"
-hero: ./img/wp-content-uploads-tracking_marker_writeup-683x1024.png
----
++++
+title = "Tracking Marker Prototype"
+date = "2019-06-23"
+
+[taxonomies]
+tags=["Blender,","Blender3D,","computer","vision,","Programming"]
++++
+
 <!-- wp:paragraph -->
 
 The teller slides a plain brown box across the counter and tells me the total with a smile. I mirror it and hand over my card. In the brown box is a stack of tracking markers -- the product of a brief flash of inspiration. If you've ever spent some time doing camera matching in Blender, you'll know that it can be a boring, tedious process that's wrought with false starts and disappointments.

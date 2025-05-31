@@ -1,12 +1,11 @@
----
-title: '2014 Resolutions'
-description: ""
-published: 2013-12-30
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=392
-categories: "Status"
-hero: ../../../defaultHero.jpg
----
++++
+title = "2014 Resolutions"
+date = "2013-12-30"
+
+[taxonomies]
+tags=["Status"]
++++
+
 It's that time again!  Pick out the things you don't like about yourself and change them!
 
 - Spend 24 minutes per day, 3 times per week drawing

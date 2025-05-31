@@ -1,12 +1,11 @@
----
-title: 'Collision Detection Sucks'
-description: ""
-published: 2012-03-07
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=87
-categories: "Game, Status"
-hero: ./img/wp-content-uploads-2012-03-Screenshot-at-2012-03-07-005915.png
----
++++
+title = "Collision Detection Sucks"
+date = "2012-03-07"
+
+[taxonomies]
+tags=["Game,","Status"]
++++
+
 After a solid two or three days of fighting with collision detection, I'm happy to say it works beautifully again.  This is no longer the solid polygonal collision detection with penalty forces.  This is tile-based collision detection.Done:
 
 - Player states

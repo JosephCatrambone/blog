@@ -1,12 +1,11 @@
----
-title: 'Let''s Do The Time Warp'
-description: ""
-published: 2011-12-03
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=15
-categories: "Game, Status"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Let''s Do The Time Warp"
+date = "2011-12-03"
+
+[taxonomies]
+tags=["Game,","Status"]
++++
+
 Uploaded a time lapse video of the work on DRMan.
 
 http://www.youtube.com/watch?v=PxVNXJFg3C0

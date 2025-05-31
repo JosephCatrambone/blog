@@ -1,12 +1,11 @@
----
-title: 'Conjecture'
-description: ""
-published: 2012-08-05
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=219
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Conjecture"
+date = "2012-08-05"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 Conjecture: authentic far-right discourse is indistinguishable from parody. I'd like to call this, "Onion's Law," after the newspaper.Take the following examples. Some of them are real. Some of them are not. See if you can guess. No cheating."The arrogance of people to think that we, human beings, would be able to change what He is doing in the climate is to me outrageous."
 
 <!-- REAL!  Senator James Inhofe (R-OK) appeared on Voice of Christian Youth America’s radio program Crosstalk -->

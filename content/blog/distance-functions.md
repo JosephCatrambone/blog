@@ -1,10 +1,9 @@
----
-title: 'Distance Functions'
-description: ""
-published: 2014-10-22
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=619
-categories: "Programming, Rant"
-hero: ./img/wp-content-uploads-2014-10-nn_image_distance_zoom-300x157.png
----
++++
+title = "Distance Functions"
+date = "2014-10-22"
+
+[taxonomies]
+tags=["Programming,","Rant"]
++++
+
 A big chunk of my master's career has been dedicated to finding good perceptual hash functions. What separates 'good' from 'bad' functions is not difficult -- low false-positive rate, low false-negative rate. That much is easy to benchmark. Really, though, what we want to optimize for near-identical image matching is the narrow range of boundary cases where images are similar, but not exactly identical. That's a much more subjective area where a binary right/wrong isn't as helpful as 'how wrong'. This is particularly relevant in our case, as we need to be able to sort images based on how similar they are to an input image.To better visualize the performance of our hash function we perform the following test. A small set of 1500 images are loaded. Each image is permuted in one of five ways; the identity (no change), rotation, pixel noise, scaling, and cropping. Each of these is hashes and appended to a list of all hashes, then a matrix is formed with inter-hash differences. (This is referred to as a 'similarity matrix', usually.) The result of the current method can be seen below:[![NN Hash Distance Table](./img/wp-content-uploads-2014-10-nn_image_distance_zoom-300x157.png)](http://www.josephcatrambone.com/wp-content/uploads/2014/10/nn_image_distance_zoom.png)On the diagonal (where x=y) you'll see the series of black squares. This is to be expected since the difference between something and itself is zero. An ideal equation would have blocks of 5x5 black pixels with the remaining area white or nearly white, suggesting a very high distance between an image and its dissimilar neighbors. You can note in the hash above that it's quite liberal -- assigning a smaller distance between differing images. Contrast it with the pHash grid below.[![pHash Distance Table](./img/wp-content-uploads-2014-10-phash_image_distance_zoom-300x157.png)](http://www.josephcatrambone.com/wp-content/uploads/2014/10/phash_image_distance_zoom.png)pHash is much more selective overall, and more effective as a metric (if significantly slower). It says to me that there's still a lot of work to be done on our hash function before it's production ready.

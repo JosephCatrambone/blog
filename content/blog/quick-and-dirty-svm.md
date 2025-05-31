@@ -1,12 +1,11 @@
----
-title: 'Quick and Dirty SVM'
-description: ""
-published: 2015-02-06
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=677
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Quick and Dirty SVM"
+date = "2015-02-06"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 Continuing this week's theme of quick Python snippets, here's a chunk of code which, when given two directories full of images named #.jpg, will build and test an SVM classifier. The code is terribly simple. Mostly, I'm including it here because I don't want to get my flash drive from the other room, and I'm too lazy to SSH/SFTP it over to my other machine.
 
 ```

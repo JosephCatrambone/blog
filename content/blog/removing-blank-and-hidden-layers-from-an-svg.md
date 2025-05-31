@@ -1,12 +1,11 @@
----
-title: 'Removing Blank and Hidden Layers from an SVG'
-description: ""
-published: 2013-10-10
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=355
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Removing Blank and Hidden Layers from an SVG"
+date = "2013-10-10"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 We discovered our former graphics designer was including all the hidden layers in his SVG icons. Each icon, that is, had a copy of every other icon stored inside invisibly. The practical upshot is our dashboard icons were in excess of 4MB to load. I wrote a simple script to iterate through and strip invisible layers. For anyone that might find utility:
 
 ```

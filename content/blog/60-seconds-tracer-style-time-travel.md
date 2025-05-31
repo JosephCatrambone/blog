@@ -1,12 +1,11 @@
----
-title: '60 Seconds: Tracer-Style Time Travel'
-description: ""
-published: 2019-07-08
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1189
-categories: "Game, gamedev, gamejam, Programming, Status"
-hero: ../../../defaultHero.jpg
----
++++
+title = "60 Seconds"
+date = "2019-07-08"
+
+[taxonomies]
+tags=["Game,","gamedev,","gamejam,","Programming,","Status"]
++++
+
 <!-- wp:paragraph -->
 
 At the close of my earlier update I mentioned wanting to try 'Tracer-style' time travel where only the player moves backwards and everything else stays in place. I gave it a go and got it working, but it wasn't particularly interesting. It was basically just the player moving in the opposite direction. Animation could probably jazz that up, but a more fun idea came to me in the middle of a sleepless night:

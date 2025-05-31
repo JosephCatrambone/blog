@@ -1,12 +1,11 @@
----
-title: 'Getting Data into LMDB for Caffe'
-description: ""
-published: 2015-02-05
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=673
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Getting Data into LMDB for Caffe"
+date = "2015-02-05"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 This borders on blogspam, but I found it so useful that I can't help but share.Evan Shelhamer shared [here](https://groups.google.com/forum/#!msg/caffe-users/19XfmJqg34Q/0qBxNwEeSNkJ) the format that Caffe expects its input data to be.
 
 ```

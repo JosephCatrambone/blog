@@ -1,12 +1,11 @@
----
-title: 'Hummus'
-description: ""
-published: 2012-01-12
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=47
-categories: "Math, Rant, Status"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Hummus"
+date = "2012-01-12"
+
+[taxonomies]
+tags=["Math,","Rant,","Status"]
++++
+
 Hummus is Mad Delicious and Crazy Easy
 
 - 1 Can of Garbanzo Beans

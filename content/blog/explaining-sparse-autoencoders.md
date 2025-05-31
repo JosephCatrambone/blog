@@ -1,12 +1,11 @@
----
-title: 'Explaining Sparse Autoencoders'
-description: ""
-published: 2014-09-12
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=596
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Explaining Sparse Autoencoders"
+date = "2014-09-12"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 The following is an excerpt from an e-mail exchange I had with a colleague who was unclear on autoencoders. It is reproduced here in the hopes that others who are looking for an explanation of the material might be able to find something with more intuition and less academic rigor.
 
 > Hi \[Redacted], I've not done this exercise specifically, but I can try and provide my intuitive, informal understanding of autoencoders. I've not gone through that article, so this understanding may be weak, but I hope it will provide some amount of guidance.An autoencoder, at its simplest, is a neural network with as many inputs as outputs. It is trained by using the same value for its input and output.That is to say, we want to learn to reproduce our input value.That may not appear to make much sense, but if you think of it as 'denoising' an input, it becomes more reasonable. We want our network to reproduce the sort of things we've seen in the past. If we train it to accomplish this task, then when using the network later on new data, aberrant pixels, blobs, and noise will tend to be filtered by the network. There are a few types of autoencoders, some of them 'deep', others, like this article, 'sparse'. In the case of sparse autoencoders, we keep the link between the number of inputs and number of outputs, but add a large number of hidden nodes. In doing this, a single hidden node may correspond to one complete output reconstruction. The difficulty in this case is making sure that the network doesn't simply learn a one-to-one-to-one mapping of input -> hidden -> output. There are ways to avoid this but I'll try and save that for later. To make things sparse, in addition to having a lot of nodes in our hidden layer, we only want a few of them to be active at any point in time. We can make only a few of the hidden nodes active at a time using L1 norm, which is basically the absolute value function. If we say the cost of something is the sum of the absolute values of the activations \[foreach(x in activations) { cost += Math.abs(x) }], then you'll notice that ANY non-zero value increases our cost. To minimize our cost function, we want only the smallest number of units active at a time which still reconstruct an input. Compare this with L2 norm: \[foreach(x in activations) { cost += x\*x }]. In the L2 case, we can have a lot of small (but non-zero) values contributing to our reconstruction. A node with activation 0.01, for example, adds only 0.0001 to our L2 norm cost.I hope that makes it a little easier to understand. If things are still fuzzy I may be able to go through the article and explain some of the formulas. (Maybe.) I'm still happy to try and answer questions.As a disclaimer: this information is true to the best of my understanding, but I am still learning and my understanding may be incomplete or even wrong. If you find something that seems to disagree with what I've said here, please let me know and we'll try to figure out what's right.Best Regards, -- Jo

@@ -1,12 +1,11 @@
----
-title: 'Summer Awful Jam 2018: Sequels'
-description: ""
-published: 2018-07-06
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1102
-categories: "Game"
-hero: ./img/wp-content-uploads-summer_jam.png
----
++++
+title = "Summer Awful Jam 2018"
+date = "2018-07-06"
+
+[taxonomies]
+tags=["Game"]
++++
+
 It's happening!![](./img/wp-content-uploads-summer_jam.png)This year's theme: Sequels!After spitballing in Discord for a while, I decided to make a sequel/spinoff to Enter the Matrix. The Matrix really needed sequels, right?Gameplay: A side-scrolling 2D platformer/beat 'em up.Minimum Viable Product:
 
 1. 2D character controls with jumping and collision (weekend 1)

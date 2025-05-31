@@ -1,12 +1,11 @@
----
-title: 'Unity 4.1 Particle Collision Tracking'
-description: ""
-published: 2013-07-01
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=319
-categories: "Game, Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Unity 4.1 Particle Collision Tracking"
+date = "2013-07-01"
+
+[taxonomies]
+tags=["Game,","Rant"]
++++
+
 I've had the pleasure of working with Unity 4.1 recently for a game jam. One of the confounding factors was this: although the Shuriken particle system collided nicely with meshes and physical bodies, no collision events were generated. (This is set to be fixed in Unity 4.2, no ETA.) This proved problematic, as I needed to count the number of particles which hit a specific target. "No big deal," I thought. "I'll just send out a tracer particle every n particles and let it do the checking. It might even be faster." I came up with the following code:
 
 ```

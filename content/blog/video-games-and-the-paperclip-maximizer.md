@@ -1,12 +1,11 @@
----
-title: 'Video Games and The Paperclip Maximizer'
-description: ""
-published: 2014-01-31
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=413
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Video Games and The Paperclip Maximizer"
+date = "2014-01-31"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 > "The AI does not hate you, nor does it love you, but you are made out of atoms which it can use for something else."  
 > —Eliezer Yudkowsky, [Artificial Intelligence as a Positive and Negative Factor in Global Risk](http://yudkowsky.net/singularity/ai-risk)
 

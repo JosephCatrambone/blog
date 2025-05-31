@@ -1,12 +1,11 @@
----
-title: 'Late to the Party: Misogyny and Gamer Culture'
-description: ""
-published: 2014-05-05
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=463
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Late to the Party"
+date = "2014-05-05"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 I'd like to open with a flat, possibly distancing statement, just so it's obvious where my allegiances lie.
 
 > Misogyny in gaming culture exists. It is divisive, and it is problematic.

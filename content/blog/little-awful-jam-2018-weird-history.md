@@ -1,12 +1,11 @@
----
-title: 'Little Awful Jam 2018: Weird History'
-description: ""
-published: 2018-01-05
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1071
-categories: "Game"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Little Awful Jam 2018"
+date = "2018-01-05"
+
+[taxonomies]
+tags=["Game"]
++++
+
 It's time again for Little Awful Jam! The theme is 'Weird History'. Make a game about folk lore, something strange that happened in history, or some corruption of events. This is my game design doc.
 
 ### Game Design Doc

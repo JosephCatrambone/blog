@@ -1,12 +1,11 @@
----
-title: 'SA GameDev Competition 9: The Rage of Painting Design Document'
-description: ""
-published: 2014-06-03
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=477
-categories: "Game, SA GameDev Competition 9, Status"
-hero: ./img/wp-content-uploads-2014-06-the_rage_of_painting.png
----
++++
+title = "SA GameDev Competition 9"
+date = "2014-06-03"
+
+[taxonomies]
+tags=["Game,","SA","GameDev","Competition","9,","Status"]
++++
+
 ![with Knob Ross](http://www.josephcatrambone.com/wp-content/uploads/2014/06/the_rage_of_painting.png)
 
 ### Why am I doing this?

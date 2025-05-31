@@ -1,12 +1,11 @@
----
-title: 'Conversion of Basis: Bridging Mathematical Disciplines'
-description: ""
-published: 2015-10-27
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=803
-categories: "Programming, Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Conversion of Basis"
+date = "2015-10-27"
+
+[taxonomies]
+tags=["Programming,","Rant"]
++++
+
 ## Or: "How I learned to stop worrying and generate planet names."
 
 A friend of mine is working on a procedural universe generator. Procedural stuff is something I happen to love, as you might ascertain from my older ramblings. In the interest of handing out some knowledge, I want to illustrate an application of different number system representations. After this is done, you'll have an intuitive understanding of how to take any number (from 0 through 2^64-1) and get back a planet name like 'Gregorio-X. Ignus system. Charion group. Darion supercluster.'

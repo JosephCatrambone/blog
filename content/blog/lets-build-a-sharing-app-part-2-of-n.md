@@ -1,12 +1,11 @@
----
-title: 'Let''s Build a Sharing App: Part 2 of n'
-description: ""
-published: 2014-09-08
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=586
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Let''s Build a Sharing App"
+date = "2014-09-08"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 Welcome back to Let's Build. With connecting and command processing out of the way, we open today with a bit of planning and design. First, let's see how the code looked at the end of the last lesson.
 
 ```

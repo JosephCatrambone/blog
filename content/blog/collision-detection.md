@@ -1,12 +1,11 @@
----
-title: 'Collision Detection'
-description: ""
-published: 2012-03-05
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=85
-categories: "Game, Status"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Collision Detection"
+date = "2012-03-05"
+
+[taxonomies]
+tags=["Game,","Status"]
++++
+
 I've been using the collision detection code from the folks at Metanet for a long time.  It wasn't until recently when I started colliding with tiles in addition to polyhedral objects that things became problematic.  Here is how everything should work, in theory:
 
 ```

@@ -1,10 +1,9 @@
----
-title: 'Restricted Boltzmann Machine'
-description: ""
-published: 2013-10-25
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=361
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Restricted Boltzmann Machine"
+date = "2013-10-25"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 As a largely unstructured academic exercise, I spent the last few weeks implementing a Restricted Boltzmann Machine trainer. I've tried to do so before with limited success. Most of the hang-ups happen in the form of nonsensical output or impossible to tweak hyperparameters. The latest iteration is slightly farther along than I usually get, and I'd ascribe this success to a few factors: first, amphetamines; second, visualization tools.The visualization path started with a simple function to dump the weights out to a PNG file. It was far from gorgeous, but it worked. Mostly. Almost. Not really.While it was great to see the features the network could grow at the end, it wasn't enough. I needed information about the genesis of the connections -- something that would at least give \_some\_ information with which to reason, just the tiniest hint about the workings of the black box. I turned to swing and JPanel, overriding the paintComponent function for a special visualizer class and having it randomly select an element and run one cycle of the visual -> hidden -> visual -> hidden dance. This has proven to be the 'printf' statement of debugging tools. It allows me to see, as the network learns, the behavior of the RBM. Still, despite this booming success I had issues with weights converging to the same value, nonsensical reconstruction, and general issues with weird-looking data. I added more pieces. I wrote a realtime weight visualizer, a delta weight visualizer, a hidden and a visible bias visualizer. Each of these has been indispensable at one point or another in the development process.The application is still growing. My system is whirring away in the background as I write this, sampling the dreams of a learning network. Maybe when it's developed enough I'll throw it on the network and give everyone a chance to play.[![Learning Network](http://www.josephcatrambone.com/wp-content/uploads/2013/10/emergent_connections_optimized.gif)](./img/wp-content-uploads-2013-10-emergent_connections_optimized.gif)

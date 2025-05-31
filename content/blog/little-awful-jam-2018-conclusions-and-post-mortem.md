@@ -1,12 +1,11 @@
----
-title: 'Little Awful Jam 2018: Conclusions and Post-Mortem'
-description: ""
-published: 2018-01-22
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1080
-categories: "Game, Programming, Rant"
-hero: ./img/wp-content-uploads-debatesim.png
----
++++
+title = "Little Awful Jam 2018"
+date = "2018-01-22"
+
+[taxonomies]
+tags=["Game,","Programming,","Rant"]
++++
+
 It's done enough!![](./img/wp-content-uploads-debatesim.png)tl;dr: [Download a Runnable Jar Here](https://www.josephcatrambone.com/games/debatesimulator/debatesimulator.jar)Standalone PC/OSX builds are pending.Kudos to [Peter Queckenstedt (@scutanddestroy)](https://twitter.com/scutanddestroy?s=09) for doing an amazing job on the Proctor, Hillary, and Trump.
 
 ### Post-Mortem:

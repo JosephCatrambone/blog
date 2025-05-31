@@ -1,12 +1,11 @@
----
-title: 'Game Project: Voight - Natural Language Processing'
-description: ""
-published: 2015-03-06
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=688
-categories: "Game"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Game Project"
+date = "2015-03-06"
+
+[taxonomies]
+tags=["Game"]
++++
+
 The past month or so has been a lot of revisiting of old papers and journal entries to try and implement a language model for Voight. As I think I wrote in an earlier post, the project runs off of a vectroization system which I've not seen implemented anywhere else so far. Perhaps there's a good reason for it. No matter the case, I wanted to try and demonstrate the quality of the 'babble' that the system produces with varying amounts of training data, varying learning rates, and varying character dimensionality. This is as much for my own interest as it is of use to anyone else.The model, for the duration of this experiment, is a simple convolutional restricted boltzmann machine with NO bias term in place. Data is unnormalized. Training rate is fixed at 0.1 for the RBM. Sentence limit is fixed at four characters. Keep in mind that a longer sentence limit with a fixed character chunk rate means more training data to the RBM per sentence. Input strings (one per line) are "Test", "Hurr", and "asdf". Be mindful that each character is mapped into a one-hot 96-bit array.
 
 Setup: 100 sentences. 100 iterations. 16-bits per character. . +/ '-", ") +

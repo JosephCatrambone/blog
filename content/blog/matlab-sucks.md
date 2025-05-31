@@ -1,12 +1,11 @@
----
-title: 'Matlab Sucks'
-description: ""
-published: 2012-09-20
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=254
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Matlab Sucks"
+date = "2012-09-20"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 Among my frustrations with Matlab is this puzzling obfuscation. Consider the following: Since Matlab doesn't have a List type which can be used for random access, insertion, and removal, we can either use their Cell type, or rearrange a matrix and reshape it. If you decide to go with the cell option and want to, for instance, read off the first column of your data, the following won't work.Our variable 'a' is a set of cells, {\[1,2]}, {\[1,2]}, {\[1,2]}, {\[1,2]}
 
 ```

@@ -1,12 +1,11 @@
----
-title: 'Simple GUI Display'
-description: ""
-published: 2014-05-22
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=474
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Simple GUI Display"
+date = "2014-05-22"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 This is a simple utility which displays and updates an image from the Python Image library.`from PIL import Image, ImageTk
 import Tkinter as tk
 from random import randint

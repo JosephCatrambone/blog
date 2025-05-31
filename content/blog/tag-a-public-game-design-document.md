@@ -1,12 +1,11 @@
----
-title: 'Tag: A Public Game Design Document'
-description: ""
-published: 2021-08-07
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1341
-categories: "Game, Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Tag"
+date = "2021-08-07"
+
+[taxonomies]
+tags=["Game,","Programming"]
++++
+
 <!-- wp:paragraph -->
 
 Happy Saturday! Let's make a game.

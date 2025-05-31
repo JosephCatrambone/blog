@@ -1,12 +1,11 @@
----
-title: 'February Project: A Text Tool'
-description: ""
-published: 2023-02-16
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1434
-categories: "Programming, programming, rust, Status"
-hero: ../../../defaultHero.jpg
----
++++
+title = "February Project"
+date = "2023-02-16"
+
+[taxonomies]
+tags=["Programming,","programming,","rust,","Status"]
++++
+
 <!-- wp:paragraph -->
 
 I started this project a little late in the month. Initial plan was to use the Team Dogpit Jam for the February activity, but that's been postponed because of weather troubles and power outages in Texas. My substitute project is a small scriptable text tool.

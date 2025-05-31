@@ -1,12 +1,11 @@
----
-title: 'Project Voight: Normalization in NLP'
-description: ""
-published: 2015-03-07
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=697
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Project Voight"
+date = "2015-03-07"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 After last night's update I did a lot of experimentation with different training values, training times, bit-length, and the like. While at the gym, it occurred to me that an assumption I'd made in the vectorization script was not holding.
 
 Here's a quick overview of how multi-class training works and what we're trying to avoid. If you're familiar with the reasoning behind using one-column-per-class as opposed to one column with numbers up to n (for n classes), you can skip this.

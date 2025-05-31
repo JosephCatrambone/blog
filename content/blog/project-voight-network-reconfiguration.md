@@ -1,12 +1,11 @@
----
-title: 'Project Voight: Network Reconfiguration'
-description: ""
-published: 2015-03-09
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=709
-categories: "Game"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Project Voight"
+date = "2015-03-09"
+
+[taxonomies]
+tags=["Game"]
++++
+
 I cranked up the learning rate on the second layer of the network (the first layer that does real learning and not normalization). I also increased the size of the chunks that the network is processing to four characters from two. After only 200 iterations, it's showing promising output.
 
 ```

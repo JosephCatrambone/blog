@@ -1,12 +1,11 @@
----
-title: 'A Political Diatribe and the State of 2017'
-description: ""
-published: 2017-11-30
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1050
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "A Political Diatribe and the State of 2017"
+date = "2017-11-30"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 Here I sit, overwhelmed at the insanity taking place in the political arena. I'm taking a moment to collect my thoughts for the same reason as anyone else that keeps a journal: so when we look back at the injustices and failures of the past we get some sense of their context. Maybe it will also remind me that we tried.
 
 ### The Net Neutrality Repeal

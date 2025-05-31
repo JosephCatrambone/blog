@@ -1,12 +1,11 @@
----
-title: 'Perforce Rage'
-description: ""
-published: 2011-12-07
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=24
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Perforce Rage"
+date = "2011-12-07"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 I've tried to put in words my contempt for Perforce a few times.  I believe now that were I to manifest fully the immensity of my hatred for this piece of software it would blanket the earth in a sea of ash and decay.  It would start with the sound of weeping and lamentation, like a child crying against the ambient noise of a playground.  The plague wind of silence would spread, lifting the hopeful and animated spirits from their frames and casting them into the darkness. Joy now ended, the screaming would grow from this deathly silence, filling the skeletal void with a boiling noise of apocalypse.  Tumultuous and unending, the world would burn and the fields would turn to salt in the wake of this horror incarnate.With that said, here are some of my real gripes with Perforce:
 
 1. Setting the active client in the command line is troublesome.  I struggled today to realize that \`p4 set P4CLIENT=myclient_engbuild\` was not working because P4CLIENT should not be capitalized.  It is printed as P4CLIENT in all the documentation, but you have to use p4client if you want it to accept changes.

@@ -1,12 +1,11 @@
----
-title: 'Unit Tests as Assumption Checks'
-description: ""
-published: 2018-01-05
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1069
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Unit Tests as Assumption Checks"
+date = "2018-01-05"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 Testing is good. Testing is right. Testing helps us find and fix mistakes before they become so rooted in our applications that new behaviors start to depend upon them. We should not, however, test for the sake of testing. There's an oft neglected balance between allowing one's application to grow and being well tested. If you have 10k unit tests that cover 100% of your 10 functions, there is a bit of a problem when you get a ticket which asks you to change your assumptions. Testing is, then, a double edged sword: it allows you to move faster knowing the accuracy of your solution, but it holds you back if you build multiple tests which are variations on a theme. The two ways I've found which are most ideal for adding a unit test are as follows:
 
 > Good tests affirm assumptions about behavior.

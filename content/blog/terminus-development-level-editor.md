@@ -1,10 +1,9 @@
----
-title: 'Terminus Development -- Level Editor'
-description: ""
-published: 2017-11-25
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1048
-categories: "Game, Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Terminus Development -- Level Editor"
+date = "2017-11-25"
+
+[taxonomies]
+tags=["Game,","Programming"]
++++
+
 https://twitter.com/JCatrambone/status/934311516785881088?ref_src=twsrc%5Etfw

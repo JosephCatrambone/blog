@@ -1,12 +1,11 @@
----
-title: 'Assembly and CPU Design'
-description: ""
-published: 2017-03-11
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=898
-categories: "Game, Programming"
-hero: ./img/wp-content-uploads-2017-03-terminus_0-300x169.png
----
++++
+title = "Assembly and CPU Design"
+date = "2017-03-11"
+
+[taxonomies]
+tags=["Game,","Programming"]
++++
+
 I revived a prototype platformer I started in college called Terminus. For me, it was mostly an excuse to fiddle with chatbots as a method of driving the plot forward, but I found an extra interesting twist: an in-game assembly language that allows the user to solve programming problems.Here's a general overview of the CPU:
 
 - 256 bytes of memory.

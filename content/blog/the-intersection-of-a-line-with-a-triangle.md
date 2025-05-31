@@ -1,12 +1,11 @@
----
-title: 'The Intersection of a Line with a Triangle'
-description: ""
-published: 2017-11-23
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=967
-categories: "Game, Math, Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "The Intersection of a Line with a Triangle"
+date = "2017-11-23"
+
+[taxonomies]
+tags=["Game,","Math,","Programming"]
++++
+
 Shout out to [MathJax/ASCIIMath](http://asciimath.org/) for being awesome.
 
 ### Motivation and Problem Statement

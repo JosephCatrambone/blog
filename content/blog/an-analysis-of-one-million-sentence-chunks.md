@@ -1,12 +1,11 @@
----
-title: 'An Analysis of One Million Sentence Chunks'
-description: ""
-published: 2014-11-11
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=638
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "An Analysis of One Million Sentence Chunks"
+date = "2014-11-11"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 Word2Vec, a method for converting a word to a vector representation, is getting a lot of hype these days. Rightfully so, it's wonderfully effective and, while not a huge departure from old LSI/LSH methods, is packaged beautifully and simply. For those of you with no concept of what that means, imagine converting a word into a numerical value in some higher dimensional space. Like, instead of 'hello', we might have a point at x=10, y=5, z=30. Now add a few more dimensions and you've got roughly the idea. Why do we care? Well, we can do mathematical operations on vectors. In fact, an interesting property of the way in which word2vec maps things is that it supports analogies very well. We can say, (dogs - dog) = (kings - \_\_\_) and word to vec will give us 'king'. Another example might be ('queen' - 'woman') = (\_\_\_ - 'man'), and we'll get "king".My biggest issue with word2vec is this: we are still using more or less whole words with some minimal parsing. This is limiting because there do exist words which are spelled wrong, or words which are entirely nonsensical but still need to be represented. If I ask, "What is the plural of 'florb'?" you will probably respond, "florbs," even if 'florb' is an entirely nonsensical word. Word2vec, because it has no way of vectorizing novel words after the training part, can't fabricate or comprehend unfamiliar terms. This is what I'd like to correct.How? Well, I know a bit about deep learning. It is my hammer, and all problems look like nails. The solution I propose is this: train a network on an input of four characters and try and compress it from 128^4 bits to n bits. Why 128^4 bits? Well, if we have four characters, the upper-bound for prefixes and suffixes, and we have 128 printable characters, (26 alpha + 26 alpha uppercase + 10 numeric + punctuation + blah blah) then that means a single 4-character chunk has 128^4 bits. That's a lot. If we have any hope of understanding full words, we'll want to get a good amount of variety while keeping our representation compact. Towards that end, we need to decide on exactly what size n we will need.This is the purpose of today's experiment: take one million sentences, break it into 4-character chunks, and see how many there are and what they look like. We could break these sentences in a number of ways, at word boundaries or across, in even chunks. Word boundaries might be 'more correct' in some sense, but that means things like "San Francisco" would be broken up and change our distribution. "P.F. Chang", too, would be incorrectly split. So, in the interest of simplicity, we'll just take chunks of four characters with a sliding window.
 
 ```

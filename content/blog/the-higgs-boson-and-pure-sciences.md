@@ -1,10 +1,9 @@
----
-title: 'The Higgs Boson and Pure Sciences'
-description: ""
-published: 2012-07-06
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=185
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "The Higgs Boson and Pure Sciences"
+date = "2012-07-06"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 Since I know a few other people are asking the same thing, I figure I'd dump a response here. The question is, "What's this mess about the Higgs Boson and why do we care?"The short pedantic nitpick is that we haven't actually discovered the Higgs. CERN scientists have found a boson with the same predicted mass as the Higgs (+/- 0.6 GeV) in their experiments. It remains to be verified that this particle has the same charge and spin as the predictions. It could be we find something with the same mass and charge but a different spin. That would be even more exciting because we'd need to rethink our current understanding of particle physics."Why is this important?"If the Higgs Boson exists in the form we expect, it is solid verifiable support of the Standard Model of Physics. This is the model which combines electomagnetism and the strong and weak nuclear forces. Thus far, there exist no mathematically and scientifically sound explanations which account for the known physical data since 1860 and describe all observed physical processes (sans gravity)."Yes, great, but why is our understanding of the science important? What do we get for the six-billion dollar price tag?"We get very little of everyday, practical, bread-on-the-table knowledge. Pure science always has a hard time justifying itself. It's very much the same as, "When will I need to know this?" as a teacher rambles on about the Pythagorean Theorem. The short version is, we really don't know. There are lots of discoveries that are made by foundational science which don't appear useful until years or decades after their discovery. Electricity, when it was first discovered as a force, didn't appear to have any practical applications. Radio, when it was first invented, was shunned by the military because, "There was no market for communication without a specific recipient." When Dirac was positing about the Dirac sea and antiparticles, very few people would realize that this research would become the foundations for Positron Emission Topography. When superconduction and quantum electron tunnelling were discovered, absolutely nobody thought that it would someday become the backbone of magnetic resonance imaging. Newton's Laws of Gravitation and Motion allow us to launch radio satellites into space. Einstein's theories of Relativity allow us to use the Doppler shift of their frequencies to produce our Global Positioning System. Atomic theory gave rise to nuclear power.Science is never born into the 'ready for consumer use' realm. All of it begins as a pure science. Most of it sounds really useless. Imagine the following exchange:"I have invented a new flashlight!""Is it brighter?""No. Not really.""Does it illuminate a greater area than my flashlight?""No. Actually it illuminates a smaller area.""I see. Is it cheaper at least?""No. It's more expensive by several orders of magnitude.""Unfortunate. Is it physically smaller?""No. It fills a small building and uses more electricity than a production factory.""That sounds quite useless and without purpose."We know in hindsight that the laser changed the world, but it didn't seem to have much worth in and of itself.We never know what benefits will befall lines of investigation. If we did, it wouldn't be called, "Research." We try all the same to push on the edges of science to see what's there. If we don't understand and apply our knowledge, they'll never become just that, applied sciences.

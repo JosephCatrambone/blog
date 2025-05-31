@@ -1,12 +1,11 @@
----
-title: 'Project Voight: Terminators'
-description: ""
-published: 2015-03-08
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=702
-categories: "Game"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Project Voight"
+date = "2015-03-08"
+
+[taxonomies]
+tags=["Game"]
++++
+
 After training the language model for a measley 7500 iterations (about two days), it started producing babble that made some semblance of sense:
 
 ```

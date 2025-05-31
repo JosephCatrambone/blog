@@ -1,12 +1,11 @@
----
-title: 'Summer Awful Jam 2018: Sequels (Week 3)'
-description: ""
-published: 2018-07-19
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1113
-categories: "Game, Programming, Status"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Summer Awful Jam 2018"
+date = "2018-07-19"
+
+[taxonomies]
+tags=["Game,","Programming,","Status"]
++++
+
 Last week's progress is listed here <https://www.josephcatrambone.com/?p=1110>.There are three things I really want to get done tonight.  (1) Characters, when they die, should go flying backwards after the last strike.  (2) I need to recursively swap out the crash-dummy yellow body parts with something that's more in line with the game's theme.  (3) I need to actually write something that ends the level.  I did make a phone booth.  (Whee!)Let's review those P1's from the start:
 
 - Main menu with start/settings/quit.

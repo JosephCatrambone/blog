@@ -1,12 +1,11 @@
----
-title: 'What I Want from a Language'
-description: ""
-published: 2015-10-01
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=779
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "What I Want from a Language"
+date = "2015-10-01"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 Although I feel like I'm at a pretty comfortable place in my life with respect to programming languages (all the right tools for the right job), I'm still looking for the magical, silver bullet that can do everything I want with perfect convenience, high entertainment value, and minimal headache.
 
 My current repertoire consists of Python for most prototyping and web applications, Java for desktop and games, and C for the occasional embedded and low-level stuff. Throw in some JavaScript for client-side things by necessity.

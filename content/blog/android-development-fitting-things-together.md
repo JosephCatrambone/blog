@@ -1,12 +1,11 @@
----
-title: 'Android Development -- Fitting Things Together'
-description: ""
-published: 2014-04-01
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=444
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Android Development -- Fitting Things Together"
+date = "2014-04-01"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 Last weekend I was tasked with throwing together an Android application for a friend with a neurological disorder. Without going into the details, it required some simple bookkeeping like, "Did I take my medicine," "Did I remember to lock the door," and things of the sort. I figured it would be a good introductory project for a semi-seasoned Java developer to get into Android development. I'd done a little bit before -- odd projects like Morsey and MethRacer, but none thus far have been native applications. After I started, I realized why. Despite the abundance of documentation and tutorials on Android, I could never quite fit together how the application was supposed to flow for any examples beyond the most trivial 'Hello World'. It seemed like the practice never quite synced with the preaching and the tutorials that showed the logical flow were either too dated or basic to really make things stick. I asked for help on the SomethingAwful forums and got a spectacular response. I'm reproducing it here so that other people with similar problems in their mental models might take solace.
 
 > Some beginner conceptual questions here. I'm not grokking the logical flow of the average Android app. I can use Buttons in Views to signal Intents which trigger changes to new Activities which have different Views, yes? Or have I completely lost it? Fragments, then, are when you have n ways of looking at the same data and don't want to pass it between activities?

@@ -1,12 +1,11 @@
----
-title: 'Generating Data with Restricted Boltzmann Machines: What doesn''t work.'
-description: ""
-published: 2015-10-15
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=796
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Generating Data with Restricted Boltzmann Machines"
+date = "2015-10-15"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 I've been trying to squeeze data out of my RBM trainer for a few days. I can get some good looking weights, but I'm a bit stuck on generating novel data. Here are some things I've tried and learned.
 
 ### Increase Gibbs Sampling

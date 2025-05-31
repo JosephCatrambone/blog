@@ -1,12 +1,11 @@
----
-title: 'Kotlin and Godot'
-description: ""
-published: 2018-03-25
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1090
-categories: "Programming"
-hero: ./img/wp-content-uploads-KotlinGodotPaths-300x265.png
----
++++
+title = "Kotlin and Godot"
+date = "2018-03-25"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 Godot is a reasonably light-weight, highly featured, open-source game engine that's been in development for more than a decade. I started playing with it not long after it was mentioned by [TheHappieCat](https://www.youtube.com/channel/UCBsuOBu-dxj5bx1KMgmar5g) on YouTube and found myself enjoying it in most every respect. The editor was, as the tagline implied, small and lightweight while being very feature complete. Version 3.0 brought with it high-fidelity visuals (a la PBR), a new physics system, and a slew of other additional enchancements. Fun on most every front.The one area where I found Godot most lacking was GDScript. Coming from languages like Python and Kotlin and Java and C, I found it to embody most of the pieces I didn't like about Python with none of the things I did like. It was just similar enough to cause problems and be unintuitive. As good as the documentation is, the language is fundamentally too limited for the kinds of things I like to do in games. (Has anyone written a matrix library for GDScript?)Enter GDNative: what appears to be the ability to simply build a DLL and then call the methods from GDScript! We're saved!Almost.GDNative doesn't provide a way to call arbitrary methods in a DLL or .so and, from what I can gather in the IRC and Discord channels, there's no intent to include Dylib or another system for gathering those. Instead, there are key methods which are exported and need to be defined so that the DLL can register with Godot. The problem then is nontrivial, but it's not impossible.
 
 What We Want:

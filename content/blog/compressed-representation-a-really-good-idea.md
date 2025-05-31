@@ -1,12 +1,11 @@
----
-title: 'Compressed Representation: A Really Good Idea'
-description: ""
-published: 2015-11-03
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=806
-categories: "Programming, Rant"
-hero: ./img/wp-content-uploads-2015-11-word2vec_semantic.png
----
++++
+title = "Compressed Representation"
+date = "2015-11-03"
+
+[taxonomies]
+tags=["Programming,","Rant"]
++++
+
 Compressed representation is a really good idea. In a nutshell, the idea is this: "There are lots of words. Lots of words mean the same thing. Lots of times the same word means different things. It would be nice if we only had one word per concept. Let's make a neural network figure that out." Voilá!
 
 My machine learning toolbox Aij is open source and available on Github. I'll be using the NeuralNetwork class and the BackpropTrainer to walk you through a rudimentary implementation. What we want in the end is to have a word vector map into a denser semantic vector. If that doesn't make sense, fear not. We will explain shortly. If you already understand semantic vectors and just want to see the implementation details, skip down to the sign.This document does assume that you have some understanding of programming and a remote familiarity with machine learning.

@@ -1,12 +1,11 @@
----
-title: 'Slowing Down'
-description: ""
-published: 2012-04-06
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=117
-categories: "Game, Status"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Slowing Down"
+date = "2012-04-06"
+
+[taxonomies]
+tags=["Game,","Status"]
++++
+
 Most of the early fun stuff is now completed.  I post here to enumerate the things that I think remain to be done.  This may have been accomplished with an older update, but this will still let me collect them for public consumption.
 
 - Respawning

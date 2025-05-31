@@ -1,12 +1,11 @@
----
-title: 'libGDX Game Jam 2015'
-description: ""
-published: 2015-12-20
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=827
-categories: "Game, Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "libGDX Game Jam 2015"
+date = "2015-12-20"
+
+[taxonomies]
+tags=["Game,","Programming"]
++++
+
 ### Game Jam Time!
 
 libGDX is doing a game jam from December 18 to January 18th. (http://itch.io/jam/libgdxjam)Nearly a year ago I prototyped a game called Metal Sky Arena wherein players would float around and use gravity guns to launch each other into spikes. After a few minutes of play, the entertainment value disappeared. Given the time I've spent playing Super Smash Brothers and Towerfall, this came as a bit of a surprise. Perhaps gravity only is too feeble a mechanic. That's why I'm going to dust off the idea and begin with Metal Sky Arena II, similar in mechanics, but instead of gravity guns, we'll give everyone shotguns! Let's do it!

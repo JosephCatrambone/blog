@@ -1,12 +1,11 @@
----
-title: 'Rusted Toolbox'
-description: ""
-published: 2011-12-05
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=20
-categories: "Rant"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Rusted Toolbox"
+date = "2011-12-05"
+
+[taxonomies]
+tags=["Rant"]
++++
+
 A while back I wrote a tool called TED, the tileset editor.  It was a companion for the marvelous [TileD](http://www.mapeditor.org/ "TileD").  Aside from Pixothello, there really weren't any good tileset editors.  One can work in Photoshop, absolutely, but it's designed for a more general purpose.  It might be time to dust off the code and start fiddling again to make it more usable and, of importance, easier for someone else to step in and diddle with the code.Here is a link to the source as it stands: [https://bitbucket.org/JosephCatrambone/tileseteditor](https://bitbucket.org/JosephCatrambone/tileseteditor "https://bitbucket.org/JosephCatrambone/tileseteditor")Things to be done:
 
 1. A decent color palette.

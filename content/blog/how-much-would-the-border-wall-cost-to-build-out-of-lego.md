@@ -1,12 +1,11 @@
----
-title: 'How much would the border wall cost to build out of LEGO?'
-description: ""
-published: 2018-12-22
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=1124
-categories: "Math"
-hero: ../../../defaultHero.jpg
----
++++
+title = "How much would the border wall cost to build out of LEGO?"
+date = "2018-12-22"
+
+[taxonomies]
+tags=["Math"]
++++
+
 <!-- wp:paragraph -->
 
 Bucky Isotope recently made mention of building the US-Mexico border wall entirely out of LEGO, following it with an inquiry on how much such a wall would cost.  Twitter, even with the newly increased comment size, still did not provide ample room for the calculation with sources.  This short piece will serve that purpose.

@@ -1,12 +1,11 @@
----
-title: 'Programming Problem Compendium'
-description: ""
-published: 2016-10-18
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=888
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Programming Problem Compendium"
+date = "2016-10-18"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 In a previous blog post \[link], I mentioned looking for a more perfect programming language.  I realized that I don't generally approach languages with the same project in mind, partially because I don't have a standard ensemble of things to do.  In the hopes of better establishing a baseline, I'll try to enumerate a standard set of problems that I will tackle when picking up a new language in the hopes of seeing how it "feels".  These problems are more in tune with the kinds of things that I handle and don't necessarily generalize to the broader world, but hopefully by describing the details that go into a problem they'll provide insight into what one should be looking for when evaluating a new language.  If I'm lucky, this will also provide an opportunity to discuss and deconstruct what languages solve a problem particularly well.  These are more complete applications than the ones seen by Rosetta Code \[link] and Project Euler \[link], and take into account things like the availability of image and linear algebra libraries.
 
 ## Problem 0: Format

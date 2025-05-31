@@ -1,12 +1,11 @@
----
-title: 'Silly Problems'
-description: ""
-published: 2012-03-08
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=91
-categories: "Game, Status"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Silly Problems"
+date = "2012-03-08"
+
+[taxonomies]
+tags=["Game,","Status"]
++++
+
 Latest lamentation on why entity/entity collisions weren't working:
 
 ```

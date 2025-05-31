@@ -1,12 +1,11 @@
----
-title: 'Implementation Notes on Calculus for Computational Graphs'
-description: ""
-published: 2016-12-31
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=895
-categories: "Math, Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Implementation Notes on Calculus for Computational Graphs"
+date = "2016-12-31"
+
+[taxonomies]
+tags=["Math,","Programming"]
++++
+
 In an earlier update, I wrote about implementing computational graphs to learn new programming languages.  I took the time recently to implement one for Kotlin, as I was having a hard time moving forward in Rust.  Here are some implementation decisions I made and how I feel about them looking back:
 
 ### Implementing operators as standalone classes.

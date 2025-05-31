@@ -1,12 +1,11 @@
----
-title: 'Fractals are Easy!'
-description: ""
-published: 2013-04-29
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=276
-categories: "Programming"
-hero: ./img/wp-content-uploads-2013-04-mandelbrot.png
----
++++
+title = "Fractals are Easy!"
+date = "2013-04-29"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 I never realized how trivial it was to implement the Mandelbrot Set in Python. It's only about 25 lines.[![Mandelbrot](http://www.josephcatrambone.com/wp-content/uploads/2013/04/mandelbrot.png)](./img/wp-content-uploads-2013-04-mandelbrot.png)Here's the full code:
 
 ```

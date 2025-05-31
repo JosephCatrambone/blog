@@ -1,10 +1,9 @@
----
-title: 'Cross-Tweet : Terminus'
-description: ""
-published: 2017-07-17
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=909
-categories: "Game, Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Cross-Tweet"
+date = "2017-07-17"
+
+[taxonomies]
+tags=["Game,","Programming"]
++++
+
 https://twitter.com/JCatrambone/status/886783270410608640

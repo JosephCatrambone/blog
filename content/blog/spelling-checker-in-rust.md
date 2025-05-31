@@ -1,12 +1,11 @@
----
-title: 'Spelling Checker in Rust'
-description: ""
-published: 2016-05-06
-redirect_from: 
-            - https://www.josephcatrambone.com/?p=862
-categories: "Programming"
-hero: ../../../defaultHero.jpg
----
++++
+title = "Spelling Checker in Rust"
+date = "2016-05-06"
+
+[taxonomies]
+tags=["Programming"]
++++
+
 Peter Norvig (yes, that Peter Norvig) wrote a brief blog post about building a spellcheck application. It's a beautifully simple approach which demonstrates the unreasonable effectiveness of simple frequency and edit distance tricks. His original blog post can be read here: <http://norvig.com/spell-correct.html>I decided to write a version of my own in Rust to learn the language.The full GitHub project with Cargo and wordlist is here: <https://github.com/JosephCatrambone/RustSpellcheck>And the Rust code of interest:
 
 ```
