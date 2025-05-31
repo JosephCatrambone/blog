@@ -41,9 +41,9 @@ socials = [
   { name = "github", url = "https://github.com/JosephCatrambone/", icon = "github" },
 ]
 menu = [
-  { name = "/blog", url = "/blog", weight = 1 },
-  { name = "/projects", url = "/projects", weight = 2 },
-  { name = "/about", url = "/about", weight = 3 },
-  { name = "/tags", url = "/tags", weight = 4 },
+  { name = "Archived Blog", url = "/blog", weight = 1 },
+  { name = "Projects", url = "/projects", weight = 2 },
+  { name = "Stories", url = "/stories", weight = 3 },
+  { name = "Tag Search", url = "/tags", weight = 4 },
 ]
 
