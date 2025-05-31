@@ -39,11 +39,12 @@ repo_url = "https://github.com/JosephCatrambone/blog/tree/main/content/"
 
 socials = [
   { name = "github", url = "https://github.com/JosephCatrambone/", icon = "github" },
+  { name = "bluesky", url = "https://bsky.app/profile/josephcat.bsky.social", icon = "bluesky" }
 ]
 menu = [
   { name = "Projects", url = "/projects", weight = 1 },
   { name = "Stories", url = "/stories", weight = 2 },
   { name = "Tag Search", url = "/tags", weight = 3 },
-  { name = "Archived Posts", url = "/blog_arvhice", weight = 4 },
+  { name = "Archived Posts", url = "/blog_archive", weight = 4 },
 ]
 
