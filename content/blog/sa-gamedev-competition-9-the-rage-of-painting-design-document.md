@@ -3,7 +3,7 @@ title = "SA GameDev Competition 9"
 date = "2014-06-03"
 
 [taxonomies]
-tags=["Game,","SA","GameDev","Competition","9,","Status"]
+tags=["Game,","SA GameDev Competition 9,","Status"]
 +++
 
 ![with Knob Ross](http://www.josephcatrambone.com/wp-content/uploads/2014/06/the_rage_of_painting.png)

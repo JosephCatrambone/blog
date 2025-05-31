@@ -3,7 +3,7 @@ title = "February Project"
 date = "2023-02-16"
 
 [taxonomies]
-tags=["Programming,","programming,","rust,","Status"]
+tags=["Programming","programming","rust","Status"]
 +++
 
 <!-- wp:paragraph -->

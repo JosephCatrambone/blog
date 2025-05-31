@@ -3,7 +3,7 @@ title = "60 Seconds"
 date = "2019-07-08"
 
 [taxonomies]
-tags=["Game,","gamedev,","gamejam,","Programming,","Status"]
+tags=["Game","gamedev","gamejam","Programming","Status"]
 +++
 
 <!-- wp:paragraph -->

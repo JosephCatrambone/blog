@@ -3,7 +3,7 @@ title = "[WP] You''re the guy in charge of playing chess for the supposed artifi
 date = "2021-03-27"
 
 [taxonomies]
-tags=["artificial","intelligence,","machine","learning,","Story,","writing","prompt"]
+tags=["artificial intelligence","machine learning", "Story", "writing prompt"]
 +++
 
 <!-- wp:paragraph -->

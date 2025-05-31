@@ -3,7 +3,7 @@ title = "Tracking Marker Prototype"
 date = "2019-06-23"
 
 [taxonomies]
-tags=["Blender,","Blender3D,","computer","vision,","Programming"]
+tags=["Blender","Blender3D","computer vision", "Programming"]
 +++
 
 <!-- wp:paragraph -->
