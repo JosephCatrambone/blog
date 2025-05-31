@@ -1,8 +1,7 @@
 +++
-title = "My Blog"
-sort_by = "date"
-template = "blog.html"
-page_template = "blog-page.html"
+title= "Home"
+template = "homepage.html"
 +++
 
-Hi.
+Hello.  My name is Joseph.  Thank you for taking the time to visit my site.  I hope it makes your life better.
+
