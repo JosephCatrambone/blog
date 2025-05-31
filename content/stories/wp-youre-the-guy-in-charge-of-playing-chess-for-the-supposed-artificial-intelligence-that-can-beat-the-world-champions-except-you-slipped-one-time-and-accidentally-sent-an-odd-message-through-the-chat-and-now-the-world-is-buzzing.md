@@ -1,5 +1,5 @@
 +++
-title = "[WP] You''re the guy in charge of playing chess for the supposed artificial intelligence that can beat the world champions. Except you slipped one time and accidentally sent an odd message through the chat, and now the world is buzzing."
+title = "[WP] Chess AI"
 date = "2021-03-27"
 
 [taxonomies]
@@ -8,7 +8,7 @@ tags=["artificial intelligence","machine learning", "Story", "writing prompt"]
 
 <!-- wp:paragraph -->
 
-Written on 2021/03/26 for /u/Shirvi's writing prompt.
+Written on 2021/03/26 for /u/Shirvi's writing prompt:  You're the guy in charge of playing chess for the supposed artificial intelligence that can beat the world champions. Except you slipped one time and accidentally sent an odd message through the chat, and now the world is buzzing.
 
 <!-- /wp:paragraph -->
 
