@@ -10,4 +10,4 @@ remote_image = "https://raw.githubusercontent.com/JosephCatrambone/pixelbox/refs
 link_to = "https://github.com/JosephCatrambone/pixelbox"
 +++
 
-Example project page
+Remove the 'link_to' to make this visible.
