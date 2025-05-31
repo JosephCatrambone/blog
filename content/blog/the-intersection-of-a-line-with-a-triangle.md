@@ -7,7 +7,7 @@ redirect_from:
 categories: "Game, Math, Programming"
 hero: ../../../defaultHero.jpg
 ---
-Shout out to [MathJax/ASCIIMath](http://asciimath.org/) for being awesome.If you don't care about any of the details, you can [click here to jump to the code](#showcode).
+Shout out to [MathJax/ASCIIMath](http://asciimath.org/) for being awesome.
 
 ### Motivation and Problem Statement
 

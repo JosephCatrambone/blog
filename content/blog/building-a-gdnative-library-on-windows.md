@@ -11,9 +11,9 @@ Godot is a really honkin' neat engine. If you haven't tried it, I strongly recom
 
 ### Overview:
 
-- [Setting up Virtualenv + Scons](#setup)
-- [Acquiring and Building Godot](#buildgodot)
-- [Building a Native Module](#buildnative)
+- Setting up Virtualenv + Scons
+- Acquiring and Building Godot
+- Building a Native Module
 
 ### Prerequisites and Setting Up
 
