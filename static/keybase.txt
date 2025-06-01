@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/josephcatrambone
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://josephcatrambone.com
+  * I am josephcatrambone (https://keybase.io/josephcatrambone) on keybase.
+  * I have a public key with fingerprint E974 FC47 9D86 9756 4EE7  C912 2D23 E135 F6F0 661B
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "010143e652520ee78eca76f50c9d3adb4a4eaa90ecebdfacb720594d7b533732f7c10a",
+      "fingerprint": "e974fc479d8697564ee7c9122d23e135f6f0661b",
+      "host": "keybase.io",
+      "key_id": "2d23e135f6f0661b",
+      "kid": "010143e652520ee78eca76f50c9d3adb4a4eaa90ecebdfacb720594d7b533732f7c10a",
+      "uid": "0f17bfc678268dd5852ace862e4f5300",
+      "username": "josephcatrambone"
+    },
+    "service": {
+      "hostname": "josephcatrambone.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1527451493,
+  "expire_in": 157680000,
+  "prev": "c2d8e87f3bbdd1120731c5cebe21fd0d2ce7d50fc4d03ab99eecabeb257430e3",
+  "seqno": 20,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.77
+Comment: https://keybase.io/crypto
+
+yMIsAnicrZJZaBRJGMcnRiOOJ7jEC8W0sogEqao+qntMELwWbwLqg4aMdXydtONM
+tz2dGA1xV9AHxV0k68KyKyKKGFhvoxJBSdRFMagRFfVB1EggqKioSDxQq3X3Td+s
+l6Kq/v9ffd+/6vzgwkSyoKax9eLJad07Cjram2sTywcOhQaN+3KtlmrQMvB5glUS
+8lE640ktpSGMsKGDZRKTIABqg2DUck0kHKkzyQ1mAGMOAgFcukxwSpDpGJJyU9ep
+TlwqMGJaqeZ6uWoIg9DLRQoLDjVcYVBH2pZDTctQaOFgQiTRAeuma7nIsjBXxho/
+HztUcZzlYYrnqz21SH8u7yv671x37Reciyl3hUVtYtlSmrZJmADbImC4po5QLMxD
+mGNZUOqVfh6CGsGikGW5nwOtsVRTp3WegDjguKNvKKcIP6tYQehHvvBXKUVNFAX5
+VEyI1gaxZQ3w9H+wNPdyUuWqHHUQ5j0/p6WwUorIi+nYJNQwseHopRrUB14IaS9W
+mNSykRrxPVCnkIJIG2zq6pxLiTFBVMfCVMkAwa5Ekgig0kTqwSTSGXccUGly4MSk
+ho5A1+L2Vud8LUUUNGLVipn3qnMsqg1V82fbKvsmCpKJon594g+XSA4Y9v83fDK5
+/8efN27ftXt0ZtTNZ10Dt6F5Lajr5m58f0Hvv2XPO/vhylOt7xbP6NqydFN5A5PL
++pQ0Dt136E1Vz8ju6fVzi8uCivnZ+vbMpJ4h6badqeKt5TPwre3XV75t+nUOKut5
++We4cM7RjPFi3MSftvzSdWFC0fA/Hj74repqpqBz8+/DS1/1dq9+UBLWnfGSZR+u
+Junxuc3z5dvx02fuATR21vudentmxAmj5T4aOTi4UVFcdLppfcVt7S925Nyex9mS
+H1BT4tjejaz8TlHLmTF8/8nE7A1td68VHrPWH/l70Mez90Y37V9yOTh8ZebTrYt+
+PJggB3qHnPeqHq1LT+0o5x3hP8nX5w6tuPQJC/hIFw==
+=Wlg4
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/josephcatrambone
+
+==================================================================
