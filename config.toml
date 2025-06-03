@@ -1,5 +1,6 @@
 # The URL the site will be built for
 base_url = "https://josephcatrambone.com"
+title = "Joseph's Blog"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -39,7 +40,11 @@ repo_url = "https://github.com/JosephCatrambone/blog/tree/main/content/"
 
 socials = [
   { name = "github", url = "https://github.com/JosephCatrambone/", icon = "github" },
-  { name = "bluesky", url = "https://bsky.app/profile/josephcat.bsky.social", icon = "bluesky" }
+  { name = "bluesky", url = "https://bsky.app/profile/josephcat.bsky.social", icon = "bluesky" },
+  { name = "itch.io", url = "https://xoana.itch.io", icon = "steam" },
+  { name = "reddit", url = "https://reddit.com/u/omgitsjo", icon = "reddit" },
+  { name = "linkedin", url = "https://www.linkedin.com/in/joseph-catrambone-07552b54", icon = "linkedin" },
+  { name = "orcid", url = "https://orcid.org/0009-0000-1382-1092", icon = "orcid" },
 ]
 menu = [
   { name = "Projects", url = "/projects", weight = 1 },
